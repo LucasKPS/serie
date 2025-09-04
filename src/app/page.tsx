@@ -1,85 +1,53 @@
 "use client"
 
-import Link from "next/link";
-import Image from "next/image";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Clapperboard } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import * as React from "react";
+import * as React from "react"
+import Image from "next/image"
+import Autoplay from "embla-carousel-autoplay"
+
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel"
 
 const backgroundImages = [
-  { src: "https://picsum.photos/1920/1080?random=1", hint: "movie collage" },
-  { src: "https://picsum.photos/1920/1080?random=2", hint: "action scene" },
-  { src: "https://picsum.photos/1920/1080?random=3", hint: "fantasy world" },
-  { src: "https://picsum.photos/1920/1080?random=4", hint: "sci-fi city" },
-  { src: "https://picsum.photos/1920/1080?random=5", hint: "drama portrait" },
+  { src: "https://picsum.photos/1920/1080?random=10", alt: "Movie Scene 1", hint: "action movie" },
+  { src: "https://picsum.photos/1920/1080?random=11", alt: "Movie Scene 2", hint: "fantasy landscape" },
+  { src: "https://picsum.photos/1920/1080?random=12", alt: "Movie Scene 3", hint: "sci-fi city" },
+  { src: "https://picsum.photos/1920/1080?random=13", alt: "Movie Scene 4", hint: "drama portrait" },
+  { src: "https://picsum.photos/1920/1080?random=14", alt: "Movie Scene 5", hint: "animated world" },
 ]
 
 export default function LoginPage() {
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 3000, stopOnInteraction: false })
   )
 
   return (
-    <main className="relative flex items-center justify-center min-h-screen bg-background p-4 overflow-hidden">
-      <div className="absolute inset-0 z-0">
-        <Carousel
-          className="w-full h-full"
-          plugins={[plugin.current]}
-          opts={{ loop: true }}
-          onMouseEnter={plugin.current.stop}
-          onMouseLeave={plugin.current.reset}
-        >
-          <CarouselContent>
-            {backgroundImages.map((img, index) => (
-              <CarouselItem key={index}>
+    <main className="relative min-h-screen w-full overflow-hidden">
+      <Carousel
+        plugins={[plugin.current]}
+        className="w-full h-screen"
+        opts={{
+          loop: true,
+        }}
+      >
+        <CarouselContent>
+          {backgroundImages.map((img, index) => (
+            <CarouselItem key={index}>
+              <div className="w-full h-screen relative">
                 <Image
                   src={img.src}
-                  alt="Collage of famous movies and series"
+                  alt={img.alt}
                   fill
                   className="object-cover"
                   data-ai-hint={img.hint}
                 />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-        <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" />
-      </div>
-      <Card className="w-full max-w-sm z-10 bg-card/80">
-        <CardHeader className="text-center">
-           <div className="flex justify-center items-center mb-4">
-            <Clapperboard className="h-8 w-8 text-accent" />
-          </div>
-          <CardTitle className="text-3xl font-headline">Bem-vindo de volta!</CardTitle>
-          <CardDescription>Faça login para continuar no CineScope</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <form className="space-y-4">
-            <div className="space-y-2">
-              <Label htmlFor="email">Email</Label>
-              <Input id="email" type="email" placeholder="seu@email.com" required />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="password">Senha</Label>
-              <Input id="password" type="password" required />
-            </div>
-            <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-              <Link href="/preferences" className="w-full h-full flex items-center justify-center">Login</Link>
-            </Button>
-          </form>
-          <div className="mt-4 text-center text-sm">
-            Não tem uma conta?{' '}
-            <Link href="#" className="underline">
-              Cadastre-se
-            </Link>
-          </div>
-        </CardContent>
-      </Card>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+      </Carousel>
     </main>
-  );
+  )
 }
