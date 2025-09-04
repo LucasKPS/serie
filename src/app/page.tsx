@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -7,8 +8,18 @@ import { Clapperboard } from "lucide-react";
 
 export default function LoginPage() {
   return (
-    <main className="flex items-center justify-center min-h-screen bg-background p-4">
-      <Card className="w-full max-w-sm">
+    <main className="relative flex items-center justify-center min-h-screen bg-background p-4 overflow-hidden">
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="https://picsum.photos/1920/1080"
+          alt="Collage of famous movies and series"
+          fill
+          className="object-cover"
+          data-ai-hint="movie collage"
+        />
+        <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" />
+      </div>
+      <Card className="w-full max-w-sm z-10 bg-card/80">
         <CardHeader className="text-center">
            <div className="flex justify-center items-center mb-4">
             <Clapperboard className="h-8 w-8 text-accent" />
@@ -27,7 +38,7 @@ export default function LoginPage() {
               <Input id="password" type="password" required />
             </div>
             <Button type="submit" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
-              <Link href="/preferences">Login</Link>
+              <Link href="/preferences" className="w-full h-full flex items-center justify-center">Login</Link>
             </Button>
           </form>
           <div className="mt-4 text-center text-sm">
