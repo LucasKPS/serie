@@ -21,7 +21,7 @@ const backgroundImages = [
 
 export default function LoginPage() {
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false })
+    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
   )
 
   return (
@@ -31,6 +31,8 @@ export default function LoginPage() {
           className="w-full h-full"
           plugins={[plugin.current]}
           opts={{ loop: true }}
+          onMouseEnter={plugin.current.stop}
+          onMouseLeave={plugin.current.reset}
         >
           <CarouselContent>
             {backgroundImages.map((img, index) => (
