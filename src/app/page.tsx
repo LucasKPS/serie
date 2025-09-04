@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import Image from "next/image";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -5,18 +7,45 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Clapperboard } from "lucide-react";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import * as React from "react";
+
+const backgroundImages = [
+  { src: "https://picsum.photos/1920/1080?random=1", hint: "movie collage" },
+  { src: "https://picsum.photos/1920/1080?random=2", hint: "action scene" },
+  { src: "https://picsum.photos/1920/1080?random=3", hint: "fantasy world" },
+  { src: "https://picsum.photos/1920/1080?random=4", hint: "sci-fi city" },
+  { src: "https://picsum.photos/1920/1080?random=5", hint: "drama portrait" },
+]
 
 export default function LoginPage() {
+  const plugin = React.useRef(
+    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
+  )
+
   return (
     <main className="relative flex items-center justify-center min-h-screen bg-background p-4 overflow-hidden">
       <div className="absolute inset-0 z-0">
-        <Image
-          src="https://picsum.photos/1920/1080"
-          alt="Collage of famous movies and series"
-          fill
-          className="object-cover"
-          data-ai-hint="movie collage"
-        />
+        <Carousel
+          className="w-full h-full"
+          plugins={[plugin.current]}
+          opts={{ loop: true }}
+        >
+          <CarouselContent>
+            {backgroundImages.map((img, index) => (
+              <CarouselItem key={index}>
+                <Image
+                  src={img.src}
+                  alt="Collage of famous movies and series"
+                  fill
+                  className="object-cover"
+                  data-ai-hint={img.hint}
+                />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
         <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" />
       </div>
       <Card className="w-full max-w-sm z-10 bg-card/80">
