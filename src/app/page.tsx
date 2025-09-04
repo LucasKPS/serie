@@ -21,7 +21,7 @@ const backgroundImages = [
 
 export default function LoginPage() {
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
   )
 
   return (
