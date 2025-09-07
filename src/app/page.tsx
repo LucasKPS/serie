@@ -25,7 +25,7 @@ import { Label } from "@/components/ui/label"
 
 
 const backgroundImages = [
-  { src: "https://images3.alphacoders.com/129/thumb-1920-1296372.jpg", alt: "Série Dexter", hint: "Dexter series", positionClass: "object-top" },
+  { src: "https://images3.alphacoders.com/129/thumb-1920-1296372.jpg", alt: "Série Dexter", hint: "Dexter series", positionClass: "object-[50%_20%]" },
   { src: "https://images5.alphacoders.com/840/thumb-1920-840870.jpg", alt: "Série Flash", hint: "Flash series" },
   { src: "https://4kwallpapers.com/images/wallpapers/one-piece-netflix-3840x2160-12664.jpg", alt: "Série One Piece", hint: "One Piece anime" },
   { src: "https://4kwallpapers.com/images/wallpapers/la-casa-de-papel-tv-5120x2880-18748.jpg", alt: "Série La Casa de Papel", hint: "La Casa de Papel" },
