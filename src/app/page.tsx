@@ -62,7 +62,7 @@ export default function LoginPage() {
                   src={img.src}
                   alt={img.alt}
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   data-ai-hint={img.hint}
                   priority={index === 0}
                 />
