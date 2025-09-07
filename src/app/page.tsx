@@ -27,7 +27,7 @@ import { Label } from "@/components/ui/label"
 const backgroundImages = [
   { src: "https://poltronanerd.com.br/wp-content/uploads/2020/06/b28117ea-41bc-47fe-93ef-f82a1f31717b.jpg", alt: "Série Dexter", hint: "Dexter series" },
   { src: "https://4kwallpapers.com/images/wallpapers/the-flash-grant-gustin-barry-allen-tv-series-dc-comics-3840x2160-6761.jpg", alt: "Série Flash", hint: "Flash series" },
-  { src: "https://picsum.photos/1920/1080?random=23", alt: "Série One Piece", hint: "One Piece anime" },
+  { src: "https://4kwallpapers.com/images/wallpapers/one-piece-netflix-3840x2160-12664.jpg", alt: "Série One Piece", hint: "One Piece anime" },
   { src: "https://picsum.photos/1920/1080?random=24", alt: "Série La Casa de Papel", hint: "La Casa de Papel" },
   { src: "https://picsum.photos/1920/1080?random=25", alt: "Série Breaking Bad", hint: "Breaking Bad" },
 ]
