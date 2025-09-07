@@ -29,7 +29,7 @@ const backgroundImages = [
   { src: "https://4kwallpapers.com/images/wallpapers/the-flash-grant-gustin-barry-allen-tv-series-dc-comics-3840x2160-6761.jpg", alt: "Série Flash", hint: "Flash series" },
   { src: "https://4kwallpapers.com/images/wallpapers/one-piece-netflix-3840x2160-12664.jpg", alt: "Série One Piece", hint: "One Piece anime" },
   { src: "https://4kwallpapers.com/images/wallpapers/la-casa-de-papel-tv-5120x2880-18748.jpg", alt: "Série La Casa de Papel", hint: "La Casa de Papel" },
-  { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi_9alz_LrhoUVnGunEzDEszjCVRHxFx9rsohrReuZDoFo0ZCb-qQCMkFHBWTZ0Eko12-UkJ44NzlleTnRNXUV6JhQCIk8lK-zu4E0CZd_fVPt0Y7lrovB3p3nJsYYLHOh_hDAgSjg_yKs/s1600/breaking_bad_fb_banner_by_cartoonperson-d5628z3.png", alt: "Série Breaking Bad", hint: "Breaking Bad" },
+  { src: "https://www.slashgear.com/img/gallery/netflix-brings-breaking-bad-in-4k/intro-import.jpg", alt: "Série Breaking Bad", hint: "Breaking Bad" },
 ]
 
 export default function LoginPage() {

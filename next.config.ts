@@ -40,12 +40,6 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
-      {
-        protocol: 'https',
-        hostname: 'blogger.googleusercontent.com',
-        port: '',
-        pathname: '/**',
-      },
     ],
   },
 };
