@@ -26,7 +26,7 @@ import { Label } from "@/components/ui/label"
 
 const backgroundImages = [
   { src: "https://poltronanerd.com.br/wp-content/uploads/2020/06/b28117ea-41bc-47fe-93ef-f82a1f31717b.jpg", alt: "Série Dexter", hint: "Dexter series" },
-  { src: "https://occ-0-8407-114.1.nflxso.net/dnm/api/v6/Z-WHgqd_TeJxSuha8aZ5WpyLcX8/AAAABQPkKiAa5lCM4j7C2w8eHPDrjhqCOVLRbwP00hlgmDmJUxH-Ww_HKIBi3M5_g7K2g2CzwtmJPVkQSTtsfqH8wgxK6L7b6GRKBrrU.jpg?r=92b", alt: "Série Flash", hint: "Flash series" },
+  { src: "https://images5.alphacoders.com/840/thumb-1920-840870.jpg", alt: "Série Flash", hint: "Flash series" },
   { src: "https://4kwallpapers.com/images/wallpapers/one-piece-netflix-3840x2160-12664.jpg", alt: "Série One Piece", hint: "One Piece anime" },
   { src: "https://4kwallpapers.com/images/wallpapers/la-casa-de-papel-tv-5120x2880-18748.jpg", alt: "Série La Casa de Papel", hint: "La Casa de Papel" },
   { src: "https://www.slashgear.com/img/gallery/netflix-brings-breaking-bad-in-4k/intro-import.jpg", alt: "Série Breaking Bad", hint: "Breaking Bad" },
