@@ -29,12 +29,12 @@ const backgroundImages = [
   { src: "https://4kwallpapers.com/images/wallpapers/the-flash-grant-gustin-barry-allen-tv-series-dc-comics-3840x2160-6761.jpg", alt: "Série Flash", hint: "Flash series" },
   { src: "https://4kwallpapers.com/images/wallpapers/one-piece-netflix-3840x2160-12664.jpg", alt: "Série One Piece", hint: "One Piece anime" },
   { src: "https://4kwallpapers.com/images/wallpapers/la-casa-de-papel-tv-5120x2880-18748.jpg", alt: "Série La Casa de Papel", hint: "La Casa de Papel" },
-  { src: "https://picsum.photos/1920/1080?random=25", alt: "Série Breaking Bad", hint: "Breaking Bad" },
+  { src: "https://www.slashgear.com/img/gallery/netflix-brings-breaking-bad-in-4k/intro-import.jpg", alt: "Série Breaking Bad", hint: "Breaking Bad" },
 ]
 
 export default function LoginPage() {
   const plugin = React.useRef(
-    Autoplay({ delay: 3000, stopOnInteraction: true, stopOnMouseEnter: true })
+    Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
   )
    const router = useRouter()
 
@@ -52,7 +52,7 @@ export default function LoginPage() {
           loop: true,
         }}
         onMouseEnter={plugin.current.stop}
-        onMouseLeave={plugin.current.reset}
+        onMouseLeave={plugin.current.play}
       >
         <CarouselContent>
           {backgroundImages.map((img, index) => (
