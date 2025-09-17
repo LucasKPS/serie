@@ -28,7 +28,7 @@ export function MovieCard({
   return (
     <Card
       className={cn(
-        "group relative block h-full w-full cursor-pointer overflow-hidden rounded-lg border-2 bg-card",
+        "group relative block h-full w-full cursor-pointer overflow-hidden rounded-lg border-2 bg-card transition-all duration-300",
         isSelected
           ? "border-accent"
           : "border-transparent hover:border-accent",
@@ -49,7 +49,7 @@ export function MovieCard({
         </div>
 
         {isSelected && (
-          <div className="absolute inset-0 bg-black/60 flex items-center justify-center">
+          <div className="absolute inset-0 flex items-center justify-center bg-black/60 transition-opacity duration-300">
             <CheckCircle2 className="h-16 w-16 text-accent" />
           </div>
         )}
