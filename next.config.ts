@@ -39,6 +39,18 @@ const nextConfig: NextConfig = {
         hostname: 'www.slashgear.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images3.alphacoders.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images5.alphacoders.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
