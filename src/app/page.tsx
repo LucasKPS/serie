@@ -3,7 +3,6 @@
 import * as React from "react"
 import Image from "next/image"
 import Autoplay from "embla-carousel-autoplay"
-import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth"
 import { auth } from "@/lib/firebase"
@@ -27,7 +26,6 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/hooks/use-toast"
 
-
 const backgroundImages = [
   { src: "https://images3.alphacoders.com/129/thumb-1920-1296372.jpg", alt: "Série Dexter", hint: "Dexter series", positionClass: "object-[50%_20%]" },
   { src: "https://images5.alphacoders.com/840/thumb-1920-840870.jpg", alt: "Série Flash", hint: "Flash series" },
@@ -47,33 +45,64 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = React.useState(false)
   const [isSigningUp, setIsSigningUp] = React.useState(false)
 
-  const handleAuth = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsLoading(true)
-
+  const handleSignIn = async () => {
     try {
-      if (isSigningUp) {
-        await createUserWithEmailAndPassword(auth, email, password);
-        toast({
-            title: "Account Created",
-            description: "You have successfully created an account. Please log in.",
-        });
-        setIsSigningUp(false);
-      } else {
-        await signInWithEmailAndPassword(auth, email, password)
-        router.push("/preferences")
-      }
+      await signInWithEmailAndPassword(auth, email, password);
+      router.push("/preferences");
     } catch (error: any) {
-        console.error(error)
+      console.error("Sign in error:", error);
+      let description = "Please check your credentials and try again.";
+      if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
+        description = "Invalid email or password. Please try again.";
+      } else if (error.code === 'auth/invalid-email') {
+        description = "Please enter a valid email address.";
+      }
       toast({
-        title: "Authentication Failed",
-        description: error.message || "Please check your credentials and try again.",
+        title: "Login Failed",
+        description,
         variant: "destructive",
-      })
-    } finally {
-      setIsLoading(false)
+      });
     }
-  }
+  };
+
+  const handleSignUp = async () => {
+    try {
+      await createUserWithEmailAndPassword(auth, email, password);
+      toast({
+        title: "Account Created",
+        description: "You have successfully created an account. Please log in.",
+      });
+      setIsSigningUp(false);
+    } catch (error: any) {
+      console.error("Sign up error:", error);
+      let description = "Could not create an account. Please try again later.";
+      if (error.code === 'auth/email-already-in-use') {
+        description = "This email is already in use. Please log in instead.";
+      } else if (error.code === 'auth/weak-password') {
+        description = "The password is too weak. Please use at least 6 characters.";
+      } else if (error.code === 'auth/invalid-email') {
+        description = "Please enter a valid email address.";
+      }
+      toast({
+        title: "Sign Up Failed",
+        description,
+        variant: "destructive",
+      });
+    }
+  };
+  
+  const handleAuth = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    if (isSigningUp) {
+      await handleSignUp();
+    } else {
+      await handleSignIn();
+    }
+
+    setIsLoading(false);
+  };
 
   return (
     <main className="relative min-h-screen w-full overflow-hidden">
