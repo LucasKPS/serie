@@ -22,7 +22,7 @@ const nextConfig: NextConfig = {
         port: '',
         pathname: '/**',
       },
-      {
+       {
         protocol: 'https',
         hostname: 'poltronanerd.com.br',
         port: '',
@@ -39,25 +39,7 @@ const nextConfig: NextConfig = {
         hostname: 'www.slashgear.com',
         port: '',
         pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'occ-0-8407-114.1.nflxso.net',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images5.alphacoders.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images3.alphacoders.com',
-        port: '',
-        pathname: '/**',
-      },
+      }
     ],
   },
 };
