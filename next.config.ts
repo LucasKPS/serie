@@ -24,12 +24,6 @@ const nextConfig: NextConfig = {
       },
        {
         protocol: 'https',
-        hostname: 'poltronanerd.com.br',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
         hostname: '4kwallpapers.com',
         port: '',
         pathname: '/**',
@@ -59,7 +53,7 @@ const nextConfig: NextConfig = {
         pathname: '/**',
       },
       {
-        protocol: 'https',
+        protocol: 'https' ,
         hostname: 'br.web.img3.acsta.net',
         port: '',
         pathname: '/**',
