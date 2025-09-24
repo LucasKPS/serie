@@ -51,6 +51,18 @@ const nextConfig: NextConfig = {
         hostname: 'images5.alphacoders.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'br.web.img2.acsta.net',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'br.web.img3.acsta.net',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
