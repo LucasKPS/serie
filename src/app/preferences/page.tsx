@@ -4,33 +4,16 @@
 import Link from "next/link";
 import { LogOut } from "lucide-react";
 import PreferencesGrid from "@/components/movies/preferences-grid";
-import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
-import { useEffect } from "react";
 
 export default function PreferencesPage() {
-  const { user, loading, signOut } = useAuth();
   const router = useRouter();
 
-  useEffect(() => {
-    if (!loading && !user) {
-      router.push("/");
-    }
-  }, [user, loading, router]);
-
-  const handleSignOut = async () => {
-    await signOut();
+  const handleSignOut = () => {
+    // Simulate sign out
     router.push("/");
   };
   
-  if (loading || !user) {
-    return (
-        <div className="flex items-center justify-center min-h-screen">
-            <div className="text-2xl font-semibold">Loading...</div>
-        </div>
-    )
-  }
-
   return (
     <main className="container mx-auto px-4 py-8 md:py-16 relative">
       <button

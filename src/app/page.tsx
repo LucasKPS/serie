@@ -5,8 +5,6 @@ import * as React from "react"
 import Image from "next/image"
 import Autoplay from "embla-carousel-autoplay"
 import { useRouter } from "next/navigation"
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth"
-import { auth } from "@/lib/firebase"
 import { Loader2 } from "lucide-react"
 
 import {
@@ -25,7 +23,6 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { useToast } from "@/hooks/use-toast"
 
 const backgroundImages = [
   { src: "https://images3.alphacoders.com/129/thumb-1920-1296372.jpg", alt: "Série Dexter", hint: "Dexter series", positionClass: "object-[50%_20%]" },
@@ -40,69 +37,15 @@ export default function LoginPage() {
     Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
   )
   const router = useRouter()
-  const { toast } = useToast()
-  const [email, setEmail] = React.useState("")
-  const [password, setPassword] = React.useState("")
   const [isLoading, setIsLoading] = React.useState(false)
-  const [isSigningUp, setIsSigningUp] = React.useState(false)
 
-  const handleSignIn = async () => {
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      router.push("/preferences");
-    } catch (error: any) {
-      console.error("Sign in error:", error);
-      let description = "Please check your credentials and try again.";
-      if (error.code === 'auth/user-not-found' || error.code === 'auth/wrong-password' || error.code === 'auth/invalid-credential') {
-        description = "Invalid email or password. Please try again.";
-      } else if (error.code === 'auth/invalid-email') {
-        description = "Please enter a valid email address.";
-      }
-      toast({
-        title: "Login Failed",
-        description,
-        variant: "destructive",
-      });
-    }
-  };
-
-  const handleSignUp = async () => {
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-      toast({
-        title: "Account Created",
-        description: "You have successfully created an account. Please log in.",
-      });
-      setIsSigningUp(false);
-    } catch (error: any) {
-      console.error("Sign up error:", error);
-      let description = "Could not create an account. Please try again later.";
-      if (error.code === 'auth/email-already-in-use') {
-        description = "This email is already in use. Please log in instead.";
-      } else if (error.code === 'auth/weak-password') {
-        description = "The password is too weak. Please use at least 6 characters.";
-      } else if (error.code === 'auth/invalid-email') {
-        description = "Please enter a valid email address.";
-      }
-      toast({
-        title: "Sign Up Failed",
-        description,
-        variant: "destructive",
-      });
-    }
-  };
-  
-  const handleAuth = async (e: React.FormEvent) => {
+  const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-
-    if (isSigningUp) {
-      await handleSignUp();
-    } else {
-      await handleSignIn();
-    }
-
-    setIsLoading(false);
+    // Simulate a network request
+    setTimeout(() => {
+      router.push("/preferences");
+    }, 1000);
   };
 
   return (
@@ -136,31 +79,31 @@ export default function LoginPage() {
 
       <div className="absolute inset-0 flex items-center justify-center bg-black/50">
         <Card className="w-full max-w-sm bg-background/80 backdrop-blur-sm">
-           <form onSubmit={handleAuth}>
+           <form onSubmit={handleLogin}>
             <CardHeader>
-              <CardTitle className="text-2xl font-headline">{isSigningUp ? "Create Account" : "CineScope"}</CardTitle>
+              <CardTitle className="text-2xl font-headline">CineScope</CardTitle>
               <CardDescription>
-                {isSigningUp ? "Create an account to get started." : "Enter your email below to log in to your account."}
+                Enter your email below to log in to your account.
               </CardDescription>
             </CardHeader>
             <CardContent className="grid gap-4">
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
-                <Input id="email" type="email" placeholder="m@example.com" required value={email} onChange={(e) => setEmail(e.target.value)} />
+                <Input id="email" type="email" placeholder="m@example.com" required />
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="password">Password</Label>
-                <Input id="password" type="password" required value={password} onChange={(e) => setPassword(e.target.value)} />
+                <Input id="password" type="password" required />
               </div>
             </CardContent>
             <CardFooter className="flex flex-col gap-4">
               <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" type="submit" disabled={isLoading}>
-                 {isLoading ? <Loader2 className="animate-spin" /> : (isSigningUp ? "Sign Up" : "Log In")}
+                 {isLoading ? <Loader2 className="animate-spin" /> : "Log In"}
               </Button>
                <div className="text-center text-sm">
-                {isSigningUp ? "Already have an account?" : "Don't have an account?"}{' '}
-                <Button variant="link" type="button" onClick={() => setIsSigningUp(!isSigningUp)} className="underline p-0 h-auto">
-                  {isSigningUp ? "Log In" : "Sign Up"}
+                Don't have an account?{' '}
+                <Button variant="link" type="button" className="underline p-0 h-auto">
+                  Sign Up
                 </Button>
               </div>
             </CardFooter>
