@@ -117,7 +117,7 @@ export const movies: Movie[] = [
     description: 'Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.',
     genre: 'Fantasy',
     cast: ['Emilia Clarke', 'Kit Harington', 'Peter Dinklage'],
-    posterUrl: 'https://picsum.photos/500/750?random=11',
+    posterUrl: 'https://poltronanerd.com.br/wp-content/uploads/2019/02/got-8-poster.jpg',
     rating: 9.2,
     year: 2011,
     aiHint: 'political fantasy',
