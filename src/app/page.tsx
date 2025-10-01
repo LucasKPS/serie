@@ -23,12 +23,13 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useToast } from "@/hooks/use-toast"
 
 const backgroundImages = [
   { src: "https://images.alphacoders.com/129/thumb-1920-1296363.jpg", alt: "Série Dexter", hint: "Dexter series", positionClass: "object-[50%_20%]" },
   { src: "https://picfiles.alphacoders.com/424/thumb-1920-424862.jpg", alt: "Série Flash", hint: "The Flash series" },
   { src: "https://4kwallpapers.com/images/wallpapers/la-casa-de-papel-tv-5120x2880-18748.jpg", alt: "Série La Casa de Papel", hint: "La Casa de Papel" },
-  { src: "https://gqcanimes.com.br/wp-content/uploads/2022/03/Alice-in-Borderland-GQCA-cp.jpg", alt: "Série Alice in Borderland", hint: "Alice in Borderland" },
+  { src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNRI75j_QUacc6WcMQgEdgbCBr5cVcm92phEvSkDLqTHefLPJh6xIMWfnaYCVSplw3602IXXchyphenhyphendcu5CPif-5PXVMtKP-fVqNMrinfY8Z2PfhSxXCpbQHD2o38woObq6NOu-DMUXB9OozF4_DiLT1IFWHVzv5wE8RT7PwUxvZoqLjRKWYJ8xpQwUAxQIy6/s16000/alice-in-borderlands-capa-2.jpg", alt: "Série Alice in Borderland", hint: "Alice in Borderland" },
   { src: "https://www.slashgear.com/img/gallery/netflix-brings-breaking-bad-in-4k/intro-import.jpg", alt: "Série Breaking Bad", hint: "Breaking Bad" }
 ]
 
@@ -37,16 +38,12 @@ export default function LoginPage() {
     Autoplay({ delay: 3000, stopOnInteraction: false, stopOnMouseEnter: true })
   )
   const router = useRouter()
-  const [isLoading, setIsLoading] = React.useState(false)
-
+  
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-    // Simulate a network request
-    setTimeout(() => {
-      router.push("/preferences");
-    }, 1000);
+    router.push("/preferences");
   };
+
 
   return (
     <main className="relative min-h-screen w-full overflow-hidden">
@@ -97,8 +94,8 @@ export default function LoginPage() {
               </div>
             </CardContent>
             <CardFooter className="flex flex-col gap-4">
-              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" type="submit" disabled={isLoading}>
-                 {isLoading ? <Loader2 className="animate-spin" /> : "Log In"}
+              <Button className="w-full bg-accent text-accent-foreground hover:bg-accent/90" type="submit">
+                 Log In
               </Button>
                <div className="text-center text-sm">
                 Don't have an account?{' '}

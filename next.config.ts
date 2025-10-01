@@ -64,9 +64,17 @@ const nextConfig: NextConfig = {
         hostname: 'br.web.img3.acsta.net',
         port: '',
         pathname: '/**',
+      },
+       {
+        protocol: 'https' ,
+        hostname: 'blogger.googleusercontent.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
 };
 
 export default nextConfig;
+
+    
