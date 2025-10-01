@@ -128,7 +128,7 @@ export const movies: Movie[] = [
     description: 'A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium.',
     genre: 'Comedy',
     cast: ['Steve Carell', 'Rainn Wilson', 'John Krasinski'],
-    posterUrl: 'https://picsum.photos/500/750?random=12',
+    posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaF-ubV-aP_3EjCWoIrCoLnRUhDlJsicdHuclKwrsy-IJMMztY',
     rating: 8.9,
     year: 2005,
     aiHint: 'workplace comedy',
@@ -139,7 +139,7 @@ export const movies: Movie[] = [
     description: 'Young Blade Runner K\'s discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who\'s been missing for thirty years.',
     genre: 'Sci-Fi',
     cast: ['Ryan Gosling', 'Harrison Ford', 'Ana de Armas'],
-    posterUrl: 'https://picsum.photos/500/750?random=13',
+    posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcST3dCSPLwz49qUGzsQlZAbDmOFuSAF_3e5uH-gvonfysREq7z0',
     rating: 8.0,
     year: 2017,
     aiHint: 'dystopian future'
