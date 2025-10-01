@@ -3,14 +3,14 @@ import type { Movie } from './types';
 export const movies: Movie[] = [
   {
     id: '1',
-    title: 'Inception',
-    description: 'A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.',
-    genre: 'Sci-Fi',
-    cast: ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Elliot Page'],
-    posterUrl: 'https://picsum.photos/500/750?random=1',
-    rating: 8.8,
-    year: 2010,
-    aiHint: 'sci-fi thriller',
+    title: 'Dexter',
+    description: 'A Miami forensics expert moonlights as a serial killer of other serial killers.',
+    genre: 'Crime',
+    cast: ['Michael C. Hall', 'Jennifer Carpenter', 'David Zayas'],
+    posterUrl: 'https://m.media-amazon.com/images/I/81JKXT1j0OL._UF1000,1000_QL80_.jpg',
+    rating: 8.6,
+    year: 2006,
+    aiHint: 'crime drama',
   },
   {
     id: '2',
