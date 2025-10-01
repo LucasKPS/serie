@@ -183,7 +183,7 @@ export const movies: Movie[] = [
     description: 'An anthology series exploring a twisted, high-tech multiverse where humanity\'s greatest innovations and darkest instincts collide.',
     genre: 'Sci-Fi',
     cast: ['Jesse Plemons', 'Cristin Milioti', 'Jimmi Simpson'],
-    posterUrl: 'https://static.wikia.nocookie.net/round-6/images/a/a1/P%C3%B4ster_da_Temporada_2.png/revision/latest?cb=20250111190411&path-prefix=pt-br',
+    posterUrl: 'https://m.media-amazon.com/images/M/MV5BMjU0ZjZhNDQtMDhkYi00OWQyLWE3NGYtNzBlY2VmM2I4ZDg5XkEyXkFqcGc@._V1_.jpg',
     rating: 8.8,
     year: 2011,
     aiHint: 'tech anthology'
