@@ -172,7 +172,7 @@ export const movies: Movie[] = [
     description: 'The adventures of Gustave H, a legendary concierge at a famous hotel from the fictional Republic of Zubrowka between the first and second World Wars, and Zero Moustafa, the lobby boy who becomes his most trusted friend.',
     genre: 'Comedy',
     cast: ['Ralph Fiennes', 'F. Murray Abraham', 'Mathieu Amalric'],
-    posterUrl: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQSmlKGIYO9ZucklKTJ6wJcPb6gzFgvWWfzp8rqKBY7Z9_xxCex',
+    posterUrl: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRjlgYXLE83x-Mg2cfmzZdSv9Ynyngr-v6EDz1Wswlb2UngUc--',
     rating: 8.1,
     year: 2014,
     aiHint: 'quirky comedy'
