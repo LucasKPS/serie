@@ -51,7 +51,7 @@ export const movies: Movie[] = [
     description: 'A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron.',
     genre: 'Fantasy',
     cast: ['Elijah Wood', 'Ian McKellen', 'Orlando Bloom'],
-    posterUrl: 'https://picsum.photos/500/750?random=5',
+    posterUrl: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcShwsh5DzMU6LwB72i0tI4RfVWmZXmfEiMfS-fpyGTsTJJvfhC4',
     rating: 8.8,
     year: 2001,
     aiHint: 'epic fantasy',
