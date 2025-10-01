@@ -25,10 +25,10 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 const backgroundImages = [
-  { src: "https://br.web.img2.acsta.net/c_310_420/pictures/19/03/21/16/15/4239577.jpg", alt: "Game of Thrones", hint: "Game of Thrones", positionClass: "object-[50%_20%]" },
-  { src: "https://br.web.img3.acsta.net/c_310_420/pictures/14/03/31/19/28/462555.jpg", alt: "Interestelar", hint: "Interstellar movie" },
-  { src: "https://4kwallpapers.com/images/wallpapers/one-piece-netflix-3840x2160-12664.jpg", alt: "Série One Piece", hint: "One Piece anime" },
+  { src: "https://images.alphacoders.com/129/thumb-1920-1296363.jpg", alt: "Série Dexter", hint: "Dexter series", positionClass: "object-[50%_20%]" },
+  { src: "https://picfiles.alphacoders.com/424/thumb-1920-424862.jpg", alt: "Série Flash", hint: "The Flash series" },
   { src: "https://4kwallpapers.com/images/wallpapers/la-casa-de-papel-tv-5120x2880-18748.jpg", alt: "Série La Casa de Papel", hint: "La Casa de Papel" },
+  { src: "https://gqcanimes.com.br/wp-content/uploads/2022/03/Alice-in-Borderland-GQCA-cp.jpg", alt: "Série Alice in Borderland", hint: "Alice in Borderland" },
   { src: "https://www.slashgear.com/img/gallery/netflix-brings-breaking-bad-in-4k/intro-import.jpg", alt: "Série Breaking Bad", hint: "Breaking Bad" }
 ]
 
