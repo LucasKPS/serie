@@ -117,7 +117,7 @@ export const movies: Movie[] = [
     description: 'Nine noble families fight for control over the lands of Westeros, while an ancient enemy returns after being dormant for millennia.',
     genre: 'Fantasy',
     cast: ['Emilia Clarke', 'Kit Harington', 'Peter Dinklage'],
-    posterUrl: 'https://picsum.photos/500/750?random=11',
+    posterUrl: 'https://resizing.flixster.com/3ko6zO6791p1QPOXHUI2eCwmHXQ=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvMDIyOTBmN2QtMzM0Yi00ODUxLWE0MWYtMmViYWJiOGViZjRkLmpwZw==',
     rating: 9.2,
     year: 2011,
     aiHint: 'political fantasy',
@@ -150,7 +150,7 @@ export const movies: Movie[] = [
     description: 'In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the help of a group of female prisoners, a psychotic worshiper, and a drifter named Max.',
     genre: 'Action',
     cast: ['Tom Hardy', 'Charlize Theron', 'Nicholas Hoult'],
-    posterUrl: 'https://picsum.photos/500/750?random=14',
+    posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTH11eywQ4X9R_4Ucg1GAl4hz2zBM6WicS42tU3-ylALKQ9lxei',
     rating: 8.1,
     year: 2015,
     aiHint: 'post-apocalyptic action'
@@ -161,7 +161,7 @@ export const movies: Movie[] = [
     description: 'During her family\'s move to the suburbs, a sullen 10-year-old girl wanders into a world ruled by gods, witches, and spirits, and where humans are changed into beasts.',
     genre: 'Animation',
     cast: ['Daveigh Chase', 'Suzanne Pleshette', 'Miyu Irino'],
-    posterUrl: 'https://picsum.photos/500/750?random=15',
+    posterUrl: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRLMyA1BUde7-xBNDGkJRyHGVI1ITpVAuk7rZMYWLwOccEcGnuQ',
     rating: 8.6,
     year: 2001,
     aiHint: 'animated fantasy'
@@ -172,7 +172,7 @@ export const movies: Movie[] = [
     description: 'The adventures of Gustave H, a legendary concierge at a famous hotel from the fictional Republic of Zubrowka between the first and second World Wars, and Zero Moustafa, the lobby boy who becomes his most trusted friend.',
     genre: 'Comedy',
     cast: ['Ralph Fiennes', 'F. Murray Abraham', 'Mathieu Amalric'],
-    posterUrl: 'https://picsum.photos/500/750?random=16',
+    posterUrl: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQSmlKGIYO9ZucklKTJ6wJcPb6gzFgvWWfzp8rqKBY7Z9_xxCex',
     rating: 8.1,
     year: 2014,
     aiHint: 'quirky comedy'
@@ -183,7 +183,7 @@ export const movies: Movie[] = [
     description: 'An anthology series exploring a twisted, high-tech multiverse where humanity\'s greatest innovations and darkest instincts collide.',
     genre: 'Sci-Fi',
     cast: ['Jesse Plemons', 'Cristin Milioti', 'Jimmi Simpson'],
-    posterUrl: 'https://picsum.photos/500/750?random=17',
+    posterUrl: 'https://static.wikia.nocookie.net/round-6/images/a/a1/P%C3%B4ster_da_Temporada_2.png/revision/latest?cb=20250111190411&path-prefix=pt-br',
     rating: 8.8,
     year: 2011,
     aiHint: 'tech anthology'
@@ -194,7 +194,7 @@ export const movies: Movie[] = [
     description: 'A comedy series adapted from the award-winning play about a young woman trying to cope with life in London whilst coming to terms with a recent tragedy.',
     genre: 'Comedy',
     cast: ['Phoebe Waller-Bridge', 'Sian Clifford', 'Olivia Colman'],
-    posterUrl: 'https://picsum.photos/500/750?random=18',
+    posterUrl: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQCCjCbok_8V1acA7zfThv2WfjilE41rTHG8VItqjZ9Uw6LP9Uy',
     rating: 8.7,
     year: 2016,
     aiHint: 'dark comedy'
@@ -205,7 +205,7 @@ export const movies: Movie[] = [
     description: 'In April 1986, an explosion at the Chernobyl nuclear power plant in the Union of Soviet Socialist Republics becomes one of the world\'s worst man-made catastrophes.',
     genre: 'Drama',
     cast: ['Jessie Buckley', 'Jared Harris', 'Stellan Skarsgård'],
-    posterUrl: 'https://picsum.photos/500/750?random=19',
+    posterUrl: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRcr0khV9t7IeOcVDRvC84eCW_5yidk-aWcf466252yFKNPAf5M',
     rating: 9.4,
     year: 2019,
     aiHint: 'historical drama'
