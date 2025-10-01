@@ -118,6 +118,12 @@ const nextConfig: NextConfig = {
         hostname: 'static.wikia.nocookie.net',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.europanet.com.br',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

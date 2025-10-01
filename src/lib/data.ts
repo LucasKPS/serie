@@ -216,7 +216,7 @@ export const movies: Movie[] = [
     description: 'As Harvard student Mark Zuckerberg creates the social networking site that would become known as Facebook, he is sued by two brothers who claimed he stole their idea, and by the co-founder who was later squeezed out of the business.',
     genre: 'Drama',
     cast: ['Jesse Eisenberg', 'Andrew Garfield', 'Justin Timberlake'],
-    posterUrl: 'https://picsum.photos/500/750?random=20',
+    posterUrl: 'https://www.europanet.com.br/image_gen/resizeimg.php?cod_produto=107066',
     rating: 7.7,
     year: 2010,
     aiHint: 'biographical drama'
