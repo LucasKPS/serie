@@ -36,11 +36,11 @@ export const movies: Movie[] = [
   },
   {
     id: '4',
-    title: 'Parasite',
+    title: 'La Casa de Papel',
     description: 'Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.',
     genre: 'Thriller',
     cast: ['Song Kang-ho', 'Lee Sun-kyun', 'Cho Yeo-jeong'],
-    posterUrl: 'https://picsum.photos/500/750?random=4',
+    posterUrl: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRH78sjPMFTyIJE1M0s6T3bnszPjIfLmHkV4QqgvwLvYZIgJL_s',
     rating: 8.6,
     year: 2019,
     aiHint: 'social thriller',
