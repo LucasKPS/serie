@@ -11,13 +11,14 @@ import { notFound } from "next/navigation";
 export default function MovieDetailPage({ params }: { params: { slug: string } }) {
   const [movie, setMovie] = useState<RecommendedMovie | null>(null);
   const [isLoading, setIsLoading] =useState(true);
+  const { slug } = params;
 
   useEffect(() => {
     try {
       const storedRecs = localStorage.getItem("recommendations");
       if (storedRecs) {
         const parsedRecs: RecommendedMovie[] = JSON.parse(storedRecs);
-        const foundMovie = parsedRecs.find(m => m.id === params.slug);
+        const foundMovie = parsedRecs.find(m => m.id === slug);
         if(foundMovie) {
             setMovie(foundMovie);
         } else {
@@ -30,7 +31,7 @@ export default function MovieDetailPage({ params }: { params: { slug: string } }
     } finally {
         setIsLoading(false);
     }
-  }, [params.slug]);
+  }, [slug]);
 
   if (isLoading) {
     return <LoadingSkeleton />;
