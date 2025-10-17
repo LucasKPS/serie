@@ -12,10 +12,10 @@ export default function ProfilePage() {
           <AvatarFallback>CS</AvatarFallback>
         </Avatar>
         <div className="text-center md:text-left">
-          <h1 className="text-4xl font-bold font-headline">CineScope User</h1>
-          <p className="text-muted-foreground">user@cinescope.app</p>
+          <h1 className="text-4xl font-bold font-headline">Usuário CineScope</h1>
+          <p className="text-muted-foreground">usuario@cinescope.app</p>
           <Button variant="outline" className="mt-4">
-            Edit Profile
+            Editar Perfil
           </Button>
         </div>
       </div>
@@ -25,12 +25,12 @@ export default function ProfilePage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <History className="w-6 h-6" />
-              Watch History
+              Histórico
             </CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              Your watch history is not yet available. This feature is coming soon!
+              Seu histórico de visualização ainda não está disponível. Esta funcionalidade chegará em breve!
             </p>
           </CardContent>
         </Card>
@@ -39,12 +39,12 @@ export default function ProfilePage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <Film className="w-6 h-6" />
-              My List
+              Minha Lista
             </CardTitle>
           </CardHeader>
           <CardContent>
              <p className="text-muted-foreground">
-              You can manage your personal list of movies and series to watch here. This feature is coming soon!
+              Você pode gerenciar sua lista pessoal de filmes e séries para assistir aqui. Esta funcionalidade chegará em breve!
             </p>
           </CardContent>
         </Card>

@@ -34,13 +34,13 @@ export default function Header() {
               href="/home"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
-              Home
+              Início
             </Link>
             <Link
               href="/profile"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
-              Profile
+              Perfil
             </Link>
           </nav>
         </div>
@@ -51,7 +51,7 @@ export default function Header() {
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle Menu</span>
+                <span className="sr-only">Abrir Menu</span>
               </Button>
             </SheetTrigger>
             <SheetContent side="left">
@@ -63,11 +63,11 @@ export default function Header() {
                 <nav className="flex flex-col space-y-4">
                    <Link href="/home" className="flex items-center space-x-2">
                      <Home className="h-5 w-5" />
-                     <span>Home</span>
+                     <span>Início</span>
                    </Link>
                    <Link href="/profile" className="flex items-center space-x-2">
                      <User className="h-5 w-5" />
-                     <span>Profile</span>
+                     <span>Perfil</span>
                    </Link>
                  </nav>
                </div>
@@ -83,7 +83,7 @@ export default function Header() {
               <Input
                 name="search"
                 type="search"
-                placeholder="Search movies or series..."
+                placeholder="Buscar filmes ou séries..."
                 className="pl-9"
                 defaultValue={searchParams.get("q") || ""}
               />

@@ -37,7 +37,7 @@ export default function HomePage() {
         setGroupedRecs(groups);
       }
     } catch (error) {
-      console.error("Failed to parse recommendations from localStorage", error);
+      console.error("Falha ao analisar as recomendações do localStorage", error);
     } finally {
       setIsLoading(false);
     }
@@ -50,12 +50,12 @@ export default function HomePage() {
   if (recommendations.length === 0) {
     return (
       <div className="container mx-auto px-4 py-16 text-center">
-        <h2 className="text-2xl font-bold mb-4">No recommendations found</h2>
+        <h2 className="text-2xl font-bold mb-4">Nenhuma recomendação encontrada</h2>
         <p className="text-muted-foreground mb-6">
-          It looks like you haven't set your preferences yet.
+          Parece que você ainda não definiu suas preferências.
         </p>
         <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-          <Link href="/">Get Recommendations</Link>
+          <Link href="/">Obter Recomendações</Link>
         </Button>
       </div>
     );

@@ -21,8 +21,8 @@ export default function AiSummary({ movie }: AiSummaryProps) {
         const result = await summarizeMovieDetails(movie);
         setSummary(result.summary);
       } catch (e) {
-        console.error("Failed to get AI summary:", e);
-        setError("Could not generate summary.");
+        console.error("Falha ao obter o resumo da IA:", e);
+        setError("Não foi possível gerar o resumo.");
       } finally {
         setIsLoading(false);
       }

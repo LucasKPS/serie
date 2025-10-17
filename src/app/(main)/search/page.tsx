@@ -21,8 +21,8 @@ function SearchResults() {
   if (!query) {
     return (
         <div className="text-center py-16">
-            <h2 className="text-xl font-semibold">Search for a movie or series</h2>
-            <p className="text-muted-foreground">Use the search bar in the header to find what you're looking for.</p>
+            <h2 className="text-xl font-semibold">Procure por um filme ou série</h2>
+            <p className="text-muted-foreground">Use a barra de pesquisa no cabeçalho para encontrar o que você está procurando.</p>
         </div>
     )
   }
@@ -30,7 +30,7 @@ function SearchResults() {
   return (
     <>
       <h1 className="text-3xl font-bold tracking-tight mb-6 font-headline">
-        Results for "{query}"
+        Resultados para "{query}"
       </h1>
       {filteredMovies.length > 0 ? (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
@@ -42,9 +42,9 @@ function SearchResults() {
         </div>
       ) : (
         <div className="text-center py-16">
-          <h2 className="text-xl font-semibold">No results found</h2>
+          <h2 className="text-xl font-semibold">Nenhum resultado encontrado</h2>
           <p className="text-muted-foreground">
-            We couldn't find any movies or series matching your search.
+            Não conseguimos encontrar nenhum filme ou série que corresponda à sua pesquisa.
           </p>
         </div>
       )}

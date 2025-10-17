@@ -1,4 +1,4 @@
-// Summarize the details of a given movie or series to generate a concise overview.
+// Resume os detalhes de um determinado filme ou série para gerar uma visão geral concisa.
 
 'use server';
 
@@ -6,15 +6,15 @@ import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
 
 const SummarizeMovieDetailsInputSchema = z.object({
-  title: z.string().describe('The title of the movie or series.'),
-  description: z.string().describe('The full description of the movie or series.'),
-  genre: z.string().describe('The genre of the movie or series.'),
-  cast: z.string().describe('The main cast members of the movie or series.'),
+  title: z.string().describe('O título do filme ou da série.'),
+  description: z.string().describe('A descrição completa do filme ou da série.'),
+  genre: z.string().describe('O gênero do filme ou da série.'),
+  cast: z.string().describe('O elenco principal do filme ou da série.'),
 });
 export type SummarizeMovieDetailsInput = z.infer<typeof SummarizeMovieDetailsInputSchema>;
 
 const SummarizeMovieDetailsOutputSchema = z.object({
-  summary: z.string().describe('A short, AI-generated summary of the movie or series details.'),
+  summary: z.string().describe('Um resumo curto, gerado por IA, dos detalhes do filme ou da série.'),
 });
 export type SummarizeMovieDetailsOutput = z.infer<typeof SummarizeMovieDetailsOutputSchema>;
 
@@ -26,16 +26,16 @@ const prompt = ai.definePrompt({
   name: 'summarizeMovieDetailsPrompt',
   input: {schema: SummarizeMovieDetailsInputSchema},
   output: {schema: SummarizeMovieDetailsOutputSchema},
-  prompt: `You are an AI movie and series summarization expert.
+  prompt: `Você é um especialista em sumarização de filmes e séries por IA.
 
-  Given the following details, create a concise summary of the movie or series. The summary should be no more than 50 words.
+  Com base nos seguintes detalhes, crie um resumo conciso do filme ou série em português do Brasil. O resumo não deve ter mais de 50 palavras.
 
-  Title: {{{title}}}
-  Description: {{{description}}}
-  Genre: {{{genre}}}
-  Cast: {{{cast}}}
+  Título: {{{title}}}
+  Descrição: {{{description}}}
+  Gênero: {{{genre}}}
+  Elenco: {{{cast}}}
 
-  Summary:`,
+  Resumo:`,
 });
 
 const summarizeMovieDetailsFlow = ai.defineFlow(

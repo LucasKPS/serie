@@ -8,7 +8,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "CineScope",
-  description: "Your personalized movie and series recommendation system.",
+  description: "Seu sistema personalizado de recomendação de filmes e séries.",
 };
 
 export default function RootLayout({
@@ -17,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="pt-BR" className="dark">
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",

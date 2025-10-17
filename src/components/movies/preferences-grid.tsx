@@ -32,8 +32,8 @@ export default function PreferencesGrid() {
   const handleSubmit = async () => {
     if (selectedMovieIds.size < 3) {
       toast({
-        title: "Select more movies",
-        description: "Please select at least 3 movies or series to get personalized recommendations.",
+        title: "Selecione mais filmes",
+        description: "Por favor, selecione pelo menos 3 filmes ou séries para obter recomendações personalizadas.",
         variant: "destructive",
       });
       return;
@@ -58,18 +58,18 @@ export default function PreferencesGrid() {
         localStorage.setItem("recommendations", JSON.stringify(augmentedRecommendations));
         
         toast({
-          title: "Success!",
-          description: "Your personalized home page is ready.",
+          title: "Sucesso!",
+          description: "Sua página inicial personalizada está pronta.",
         });
         router.push("/home");
       } else {
-        throw new Error("Failed to get recommendations.");
+        throw new Error("Falha ao obter recomendações.");
       }
     } catch (error) {
       console.error(error);
       toast({
-        title: "An error occurred",
-        description: "We couldn't generate recommendations at this time. Please try again later.",
+        title: "Ocorreu um erro",
+        description: "Não foi possível gerar recomendações no momento. Por favor, tente novamente mais tarde.",
         variant: "destructive",
       });
       setIsLoading(false);
@@ -100,10 +100,10 @@ export default function PreferencesGrid() {
           {isLoading ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Generating Recommendations...
+              Gerando Recomendações...
             </>
           ) : (
-            "Continue"
+            "Continuar"
           )}
         </Button>
       </div>

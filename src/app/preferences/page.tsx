@@ -19,16 +19,16 @@ export default function PreferencesPage() {
       <button
         onClick={handleSignOut}
         className="absolute top-4 right-4 md:top-8 md:right-8 h-12 w-12 bg-white rounded-full flex items-center justify-center shadow-md transition-transform duration-200 hover:scale-110"
-        aria-label="Sign Out"
+        aria-label="Sair"
       >
         <LogOut className="h-6 w-6 text-primary" />
       </button>
       <div className="text-center mb-8 md:mb-12">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4 font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
-          Welcome to CineScope
+          Bem-vindo ao CineScope
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-          To get started, select a few movies or series you've enjoyed. This will help us create personalized recommendations for you.
+          Para começar, selecione alguns filmes ou séries que você gostou. Isso nos ajudará a criar recomendações personalizadas para você.
         </p>
       </div>
       <PreferencesGrid />

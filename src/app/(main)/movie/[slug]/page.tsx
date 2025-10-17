@@ -25,7 +25,7 @@ export default function MovieDetailPage({ params }: { params: { slug: string } }
         }
       }
     } catch (error) {
-      console.error("Failed to load movie data", error);
+      console.error("Falha ao carregar os dados do filme", error);
       notFound();
     } finally {
         setIsLoading(false);
@@ -64,17 +64,17 @@ export default function MovieDetailPage({ params }: { params: { slug: string } }
           </div>
           
           <div className="bg-card p-4 rounded-lg border">
-            <h2 className="text-xl font-semibold mb-2 font-headline">AI Summary</h2>
+            <h2 className="text-xl font-semibold mb-2 font-headline">Resumo da IA</h2>
             <AiSummary movie={{
                 title: movie.title,
                 description: movie.description,
                 genre: movie.genre,
-                cast: "N/A" // Cast info is not available from the recommendation AI
+                cast: "N/A" // Informação de elenco não disponível da IA de recomendação
             }} />
           </div>
 
           <div className="mt-8">
-            <h2 className="text-xl font-semibold mb-2 font-headline">Why we recommend it</h2>
+            <h2 className="text-xl font-semibold mb-2 font-headline">Por que recomendamos</h2>
             <p className="text-muted-foreground">{movie.similarityReason}</p>
           </div>
         </div>
