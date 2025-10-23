@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useEffect, useState } from "react";
@@ -65,7 +66,7 @@ export default function HomePage() {
     <div className="container mx-auto px-4 py-8 space-y-12">
       {Object.entries(groupedRecs).map(([reason, movies]) => (
         <section key={reason}>
-          <h2 className="text-2xl font-bold tracking-tight mb-4 font-headline">{reason}</h2>
+          <h2 className="text-xl font-semibold tracking-tight mb-4 font-headline">{reason}</h2>
           <Carousel
             opts={{
               align: "start",
