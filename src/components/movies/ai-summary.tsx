@@ -9,15 +9,16 @@ import { Sparkles } from "lucide-react";
 
 type AiSummaryProps = {
   movie: SummarizeMovieDetailsInput;
+  isGenerating: boolean;
+  setIsGenerating: (isGenerating: boolean) => void;
 };
 
-export default function AiSummary({ movie }: AiSummaryProps) {
+export default function AiSummary({ movie, isGenerating, setIsGenerating }: AiSummaryProps) {
   const [summary, setSummary] = useState<string | null>(null);
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const getSummary = async () => {
-    setIsLoading(true);
+    setIsGenerating(true);
     setError(null);
     try {
       const result = await summarizeMovieDetails(movie);
@@ -26,7 +27,7 @@ export default function AiSummary({ movie }: AiSummaryProps) {
       console.error("Falha ao obter o resumo da IA:", e);
       setError("Não foi possível gerar o resumo. Tente novamente mais tarde.");
     } finally {
-      setIsLoading(false);
+      setIsGenerating(false);
     }
   };
 
@@ -34,7 +35,7 @@ export default function AiSummary({ movie }: AiSummaryProps) {
     return <p className="text-sm text-muted-foreground">{summary}</p>;
   }
 
-  if (isLoading) {
+  if (isGenerating && !summary && !error) {
     return <Skeleton className="h-16 w-full" />;
   }
 
@@ -43,7 +44,7 @@ export default function AiSummary({ movie }: AiSummaryProps) {
   }
 
   return (
-    <Button onClick={getSummary} disabled={isLoading} variant="outline" size="sm">
+    <Button onClick={getSummary} disabled={isGenerating} variant="outline" size="sm">
       <Sparkles className="mr-2 h-4 w-4" />
       Gerar Resumo
     </Button>

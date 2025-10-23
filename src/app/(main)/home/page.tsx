@@ -13,6 +13,7 @@ import AiSummary from "@/components/movies/ai-summary";
 export default function HomePage() {
   const [recommendations, setRecommendations] = useState<RecommendedMovie[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isGeneratingSummary, setIsGeneratingSummary] = useState(false);
 
   useEffect(() => {
     try {
@@ -49,7 +50,7 @@ export default function HomePage() {
   return (
     <div className="container mx-auto px-4 py-8 space-y-16">
       <div className="text-center">
-        <h1 className="text-4xl font-bold tracking-tight mb-2 font-headline">Suas Recomendações</h1>
+        <h1 className="text-3xl font-bold tracking-tight mb-2 font-headline">Suas Recomendações</h1>
         <p className="text-lg text-muted-foreground">Com base nas suas preferências, aqui estão algumas sugestões.</p>
       </div>
 
@@ -81,17 +82,21 @@ export default function HomePage() {
             
             <div className="bg-card p-4 rounded-lg border mb-6">
                 <h3 className="text-xl font-semibold mb-2 font-headline">Resumo da IA</h3>
-                <AiSummary movie={{
-                    title: movie.title,
-                    description: movie.description,
-                    genre: movie.genre,
-                    cast: "N/A"
-                }} />
+                <AiSummary 
+                    movie={{
+                        title: movie.title,
+                        description: movie.description,
+                        genre: movie.genre,
+                        cast: "N/A"
+                    }}
+                    isGenerating={isGeneratingSummary}
+                    setIsGenerating={setIsGeneratingSummary}
+                />
             </div>
 
             <div className="mt-8">
                 <h3 className="text-xl font-semibold mb-2 font-headline">Por que recomendamos</h3>
-                <p className="text-muted-foreground">{movie.similarityReason}</p>
+                <p className="text-muted-foreground font-headline">{movie.similarityReason}</p>
             </div>
             </div>
         </div>

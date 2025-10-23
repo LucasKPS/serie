@@ -12,6 +12,7 @@ import { notFound } from "next/navigation";
 export default function MovieDetailPage({ params }: { params: { slug: string } }) {
   const [movie, setMovie] = useState<RecommendedMovie | null>(null);
   const [isLoading, setIsLoading] =useState(true);
+  const [isGeneratingSummary, setIsGeneratingSummary] = useState(false);
   const { slug } = params;
 
   useEffect(() => {
@@ -72,7 +73,10 @@ export default function MovieDetailPage({ params }: { params: { slug: string } }
                 description: movie.description,
                 genre: movie.genre,
                 cast: "N/A" // Informação de elenco não disponível da IA de recomendação
-            }} />
+            }} 
+              isGenerating={isGeneratingSummary}
+              setIsGenerating={setIsGeneratingSummary}
+            />
           </div>
 
           <div className="mt-8">
