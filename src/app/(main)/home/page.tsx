@@ -41,7 +41,7 @@ export default function HomePage() {
           Parece que você ainda não definiu suas preferências.
         </p>
         <Button asChild className="bg-accent text-accent-foreground hover:bg-accent/90">
-          <Link href="/">Obter Recomendações</Link>
+          <Link href="/preferences">Obter Recomendações</Link>
         </Button>
       </div>
     );
@@ -52,6 +52,9 @@ export default function HomePage() {
       <div className="text-center">
         <h1 className="text-3xl font-bold tracking-tight mb-2 font-headline">Suas Recomendações</h1>
         <p className="text-lg text-muted-foreground">Com base nas suas preferências, aqui estão algumas sugestões.</p>
+        <Button asChild variant="outline" className="mt-4">
+          <Link href="/preferences">Gerar Novas Recomendações</Link>
+        </Button>
       </div>
 
       {recommendations.map((movie, index) => (
