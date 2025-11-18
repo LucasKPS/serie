@@ -26,13 +26,18 @@ const RecommendBasedOnInitialPreferencesOutputSchema = z.object({
     .array(
       z.object({
         title: z.string().describe('O título do filme ou série recomendada.'),
-        description: z.string().describe('Uma breve descrição do filme ou da série.'),
+        description: z
+          .string()
+          .describe('Uma breve descrição do filme ou da série.'),
         genre: z.string().describe('O gênero do filme ou da série.'),
         similarityReason: z
           .string()
           .describe(
             'A razão pela qual este filme ou série é recomendado com base nas seleções iniciais.'
           ),
+        posterUrl: z
+          .string()
+          .describe('A URL para o pôster oficial do filme ou série.'),
       })
     )
     .describe('Uma lista de filmes e séries recomendados.'),
@@ -51,7 +56,7 @@ const prompt = ai.definePrompt({
   name: 'recommendBasedOnInitialPreferencesPrompt',
   input: {schema: RecommendBasedOnInitialPreferencesInputSchema},
   output: {schema: RecommendBasedOnInitialPreferencesOutputSchema},
-  prompt: `Você é um especialista em recomendação de filmes e séries. Com base nas seleções iniciais do usuário, você recomendará outros filmes e séries que ele possa gostar. Forneça um motivo pelo qual o conteúdo é semelhante às seleções iniciais. As recomendações, incluindo a razão da similaridade, devem ser em português do Brasil.
+  prompt: `Você é um especialista em recomendação de filmes e séries. Com base nas seleções iniciais do usuário, você recomendará outros filmes e séries que ele possa gostar. Forneça um motivo pelo qual o conteúdo é semelhante às seleções iniciais. Para cada recomendação, encontre e forneça a URL para a imagem do pôster oficial. As recomendações, incluindo a razão da similaridade, devem ser em português do Brasil.
 
 Seleções iniciais do usuário:
 {{#each initialSelections}}- {{{this}}}

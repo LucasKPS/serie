@@ -51,7 +51,6 @@ export default function PreferencesGrid() {
         const augmentedRecommendations: RecommendedMovie[] = result.recommendations.map((rec, index) => ({
           ...rec,
           id: crypto.randomUUID(),
-          posterUrl: `https://picsum.photos/500/751?random=${21 + index}`, // Use a different random seed
           aiHint: rec.genre.toLowerCase(),
         }));
         
