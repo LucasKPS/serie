@@ -13,9 +13,9 @@ export default function MovieDetailPage({ params }: { params: { slug: string } }
   const [movie, setMovie] = useState<RecommendedMovie | null>(null);
   const [isLoading, setIsLoading] =useState(true);
   const [isGeneratingSummary, setIsGeneratingSummary] = useState(false);
-  const { slug } = params;
-
+  
   useEffect(() => {
+    const slug = params.slug;
     try {
       const storedRecs = localStorage.getItem("recommendations");
       if (storedRecs) {
@@ -33,7 +33,7 @@ export default function MovieDetailPage({ params }: { params: { slug: string } }
     } finally {
         setIsLoading(false);
     }
-  }, [slug]);
+  }, [params.slug]);
 
   if (isLoading) {
     return <LoadingSkeleton />;
