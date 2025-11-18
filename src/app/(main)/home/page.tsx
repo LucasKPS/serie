@@ -61,7 +61,7 @@ export default function HomePage() {
          <div key={movie.id} className="grid md:grid-cols-3 gap-8 md:gap-12 items-start animate-fade-in-up" style={{ animationDelay: `${index * 150}ms` }}>
             <div className="md:col-span-1">
               <Link href={`/movie/${movie.id}`}>
-                <div className="aspect-[2/3] w-full max-w-sm mx-auto group">
+                <div className="aspect-[2/3] w-full max-w-sm mx-auto group sticky top-24">
                     <Image
                     src={movie.posterUrl}
                     alt={movie.title}
@@ -99,7 +99,7 @@ export default function HomePage() {
 
             <div className="mt-8">
                 <h3 className="text-xl font-semibold mb-2 font-headline">Por que recomendamos</h3>
-                <p className="text-muted-foreground font-headline">{movie.similarityReason}</p>
+                <p className="text-muted-foreground">{movie.similarityReason}</p>
             </div>
             </div>
         </div>
@@ -112,7 +112,7 @@ function LoadingSkeleton() {
   return (
     <div className="container mx-auto px-4 py-8 space-y-12">
       {[1, 2, 3].map(i => (
-        <div key={i} className="grid md:grid-cols-3 gap-8 md:gap-12">
+        <div key={i} className="grid md:grid-cols-3 gap-8 md:gap-12 items-start">
             <div className="md:col-span-1">
                 <Skeleton className="aspect-[2/3] w-full max-w-sm mx-auto rounded-lg" />
             </div>
@@ -123,6 +123,10 @@ function LoadingSkeleton() {
                 <div className="bg-card p-4 rounded-lg border">
                     <Skeleton className="h-8 w-1/3 mb-4" />
                     <Skeleton className="h-16 w-full" />
+                </div>
+                 <div className="mt-8">
+                    <Skeleton className="h-8 w-1/3 mb-4" />
+                    <Skeleton className="h-10 w-full" />
                 </div>
             </div>
         </div>

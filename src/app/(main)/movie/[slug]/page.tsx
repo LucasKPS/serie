@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, use } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import type { RecommendedMovie } from "@/lib/types";
@@ -9,29 +9,32 @@ import AiSummary from "@/components/movies/ai-summary";
 import { Skeleton } from "@/components/ui/skeleton";
 import { notFound } from "next/navigation";
 
-export default function MovieDetailPage({ params }: { params: { slug: string } }) {
+// Envolvemos o componente em um componente pai para usar React.use()
+function MovieDetails({ slug }: { slug: string }) {
   const [movie, setMovie] = useState<RecommendedMovie | null>(null);
-  const [isLoading, setIsLoading] =useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [isGeneratingSummary, setIsGeneratingSummary] = useState(false);
-  const { slug } = params;
-  
+
   useEffect(() => {
     try {
       const storedRecs = localStorage.getItem("recommendations");
       if (storedRecs) {
         const parsedRecs: RecommendedMovie[] = JSON.parse(storedRecs);
         const foundMovie = parsedRecs.find(m => m.id === slug);
-        if(foundMovie) {
-            setMovie(foundMovie);
+        if (foundMovie) {
+          setMovie(foundMovie);
         } else {
-            notFound();
+          notFound();
         }
+      } else {
+        // Se não houver recomendações, não há filme para encontrar
+        notFound();
       }
     } catch (error) {
       console.error("Falha ao carregar os dados do filme", error);
       notFound();
     } finally {
-        setIsLoading(false);
+      setIsLoading(false);
     }
   }, [slug]);
 
@@ -45,9 +48,9 @@ export default function MovieDetailPage({ params }: { params: { slug: string } }
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="grid md:grid-cols-3 gap-8 md:gap-12">
+      <div className="grid md:grid-cols-3 gap-8 md:gap-12 items-start">
         <div className="md:col-span-1">
-          <div className="aspect-[2/3] w-full max-w-sm mx-auto">
+          <div className="aspect-[2/3] w-full max-w-sm mx-auto sticky top-24">
             <Image
               src={movie.posterUrl}
               alt={movie.title}
@@ -66,14 +69,15 @@ export default function MovieDetailPage({ params }: { params: { slug: string } }
             <p>{movie.description}</p>
           </div>
           
-          <div className="bg-card p-4 rounded-lg border">
+          <div className="bg-card p-4 rounded-lg border mb-6">
             <h2 className="text-xl font-semibold mb-2 font-headline">Resumo da IA</h2>
-            <AiSummary movie={{
-                title: movie.title,
-                description: movie.description,
-                genre: movie.genre,
-                cast: "N/A" // Informação de elenco não disponível da IA de recomendação
-            }} 
+            <AiSummary 
+              movie={{
+                  title: movie.title,
+                  description: movie.description,
+                  genre: movie.genre,
+                  cast: "N/A"
+              }}
               isGenerating={isGeneratingSummary}
               setIsGenerating={setIsGeneratingSummary}
             />
@@ -88,6 +92,13 @@ export default function MovieDetailPage({ params }: { params: { slug: string } }
     </div>
   );
 }
+
+
+export default function MovieDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = use(params);
+  return <MovieDetails slug={slug} />;
+}
+
 
 function LoadingSkeleton() {
     return (
