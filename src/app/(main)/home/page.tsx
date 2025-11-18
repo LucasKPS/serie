@@ -63,12 +63,12 @@ export default function HomePage() {
               <Link href={`/movie/${movie.id}`}>
                 <div className="aspect-[2/3] w-full max-w-sm mx-auto group sticky top-24">
                     <Image
-                    src={movie.posterUrl}
-                    alt={movie.title}
-                    width={500}
-                    height={750}
-                    className="rounded-lg object-cover shadow-2xl transition-transform duration-300 group-hover:scale-105"
-                    data-ai-hint={movie.aiHint}
+                      src={movie.posterUrl}
+                      alt={movie.title}
+                      width={500}
+                      height={750}
+                      className="rounded-lg object-cover shadow-2xl transition-transform duration-300 group-hover:scale-105"
+                      data-ai-hint={movie.aiHint}
                     />
                 </div>
               </Link>

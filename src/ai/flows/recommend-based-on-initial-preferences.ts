@@ -37,7 +37,8 @@ const RecommendBasedOnInitialPreferencesOutputSchema = z.object({
           ),
         posterUrl: z
           .string()
-          .describe('A URL para o pôster oficial do filme ou série.'),
+          .url()
+          .describe('A URL para o pôster oficial do filme ou série. Deve ser uma URL válida.'),
       })
     )
     .describe('Uma lista de filmes e séries recomendados.'),
