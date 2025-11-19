@@ -29,6 +29,7 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { useFirebase } from '@/firebase';
 import { signInWithEmail, signUpWithEmail } from '@/firebase/auth/auth-service';
+import './auth.css';
 
 const formSchema = z.object({
   displayName: z.string().optional(),
@@ -127,8 +128,8 @@ export default function AuthPage() {
   }
 
   return (
-    <main className="flex min-h-screen w-full items-center justify-center bg-background p-4">
-      <Card className="w-full max-w-sm">
+    <main className="auth-page flex min-h-screen w-full items-center justify-center p-4">
+      <Card className="w-full max-w-sm bg-card/80 backdrop-blur-sm">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <CardHeader>

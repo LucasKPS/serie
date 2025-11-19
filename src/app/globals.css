@@ -55,21 +55,5 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/fundoNetflix.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
-
-  body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: hsl(var(--background));
-    opacity: 0.8;
-    z-index: -1;
   }
 }
