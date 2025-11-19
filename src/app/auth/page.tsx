@@ -129,7 +129,7 @@ export default function AuthPage() {
 
   return (
     <main className="auth-page flex min-h-screen w-full items-center justify-center p-4">
-      <Card className="w-full max-w-sm bg-card/60 backdrop-blur-sm">
+      <Card className="w-full max-w-sm bg-card/60">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <CardHeader>
