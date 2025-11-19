@@ -1,0 +1,355 @@
+{
+  "entities": {
+    "User": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "User",
+      "type": "object",
+      "description": "Represents a user of the CineScope application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user."
+        },
+        "email": {
+          "type": "string",
+          "description": "User's email address.",
+          "format": "email"
+        },
+        "username": {
+          "type": "string",
+          "description": "The user's username or display name."
+        },
+        "dateJoined": {
+          "type": "string",
+          "description": "Date and time the user joined the CineScope platform.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "email",
+        "username",
+        "dateJoined"
+      ]
+    },
+    "Movie": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Movie",
+      "type": "object",
+      "description": "Represents a movie in the CineScope application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the movie."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the movie."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description or synopsis of the movie."
+        },
+        "genre": {
+          "type": "string",
+          "description": "Genre of the movie (e.g., Action, Comedy, Drama)."
+        },
+        "releaseDate": {
+          "type": "string",
+          "description": "Release date of the movie.",
+          "format": "date-time"
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of the movie's poster image.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "genre",
+        "releaseDate",
+        "imageUrl"
+      ]
+    },
+    "Series": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Series",
+      "type": "object",
+      "description": "Represents a series in the CineScope application.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the series."
+        },
+        "title": {
+          "type": "string",
+          "description": "Title of the series."
+        },
+        "description": {
+          "type": "string",
+          "description": "Description or synopsis of the series."
+        },
+        "genre": {
+          "type": "string",
+          "description": "Genre of the series (e.g., Action, Comedy, Drama)."
+        },
+        "startDate": {
+          "type": "string",
+          "description": "Start date of the series.",
+          "format": "date-time"
+        },
+        "endDate": {
+          "type": "string",
+          "description": "End date of the series (null if still running).",
+          "format": "date-time"
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "URL of the series' poster image.",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "description",
+        "genre",
+        "startDate",
+        "imageUrl"
+      ]
+    },
+    "UserPreference": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserPreference",
+      "type": "object",
+      "description": "Represents a user's preference for a specific movie or series.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the user preference."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to the User who has this preference. (Relationship: User 1:N UserPreference)"
+        },
+        "movieId": {
+          "type": "string",
+          "description": "Reference to the Movie that the user has a preference for. Null if preference is for a Series. (Relationship: Movie 1:N UserPreference)"
+        },
+        "seriesId": {
+          "type": "string",
+          "description": "Reference to the Series that the user has a preference for. Null if preference is for a Movie. (Relationship: Series 1:N UserPreference)"
+        },
+        "preferenceType": {
+          "type": "string",
+          "description": "The type of preference (e.g., 'liked', 'disliked')."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "preferenceType"
+      ]
+    },
+    "Recommendation": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "Recommendation",
+      "type": "object",
+      "description": "Represents a movie or series recommended to a user.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the recommendation."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to the User to whom the movie or series is recommended. (Relationship: User 1:N Recommendation)"
+        },
+        "movieId": {
+          "type": "string",
+          "description": "Reference to the Movie being recommended. Null if recommending a Series. (Relationship: Movie 1:N Recommendation)"
+        },
+        "seriesId": {
+          "type": "string",
+          "description": "Reference to the Series being recommended. Null if recommending a Movie. (Relationship: Series 1:N Recommendation)"
+        },
+        "reason": {
+          "type": "string",
+          "description": "Reason for the recommendation (e.g., 'Based on your liked movies', 'Trending in your area')."
+        },
+        "recommendationDate": {
+          "type": "string",
+          "description": "Date and time when the recommendation was generated.",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "reason",
+        "recommendationDate"
+      ]
+    },
+    "ViewingHistory": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ViewingHistory",
+      "type": "object",
+      "description": "Represents a record of a user viewing a movie or series.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the viewing history entry."
+        },
+        "userId": {
+          "type": "string",
+          "description": "Reference to the User who viewed the movie or series. (Relationship: User 1:N ViewingHistory)"
+        },
+        "movieId": {
+          "type": "string",
+          "description": "Reference to the Movie that was viewed. Null if a Series was viewed. (Relationship: Movie 1:N ViewingHistory)"
+        },
+        "seriesId": {
+          "type": "string",
+          "description": "Reference to the Series that was viewed. Null if a Movie was viewed. (Relationship: Series 1:N ViewingHistory)"
+        },
+        "viewDate": {
+          "type": "string",
+          "description": "Date and time when the movie or series was viewed.",
+          "format": "date-time"
+        },
+        "duration": {
+          "type": "number",
+          "description": "The amount of time, in seconds, the content was viewed."
+        }
+      },
+      "required": [
+        "id",
+        "userId",
+        "viewDate",
+        "duration"
+      ]
+    }
+  },
+  "auth": {
+    "providers": [
+      "password",
+      "anonymous"
+    ]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}",
+        "definition": {
+          "entityName": "User",
+          "schema": {
+            "$ref": "#/backend/entities/User"
+          },
+          "description": "Stores user profile information. Uses path-based ownership for access control.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/movies/{movieId}",
+        "definition": {
+          "entityName": "Movie",
+          "schema": {
+            "$ref": "#/backend/entities/Movie"
+          },
+          "description": "Stores movie information. Assumes public read access or admin-managed.",
+          "params": [
+            {
+              "name": "movieId",
+              "description": "The unique identifier for the movie."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/series/{seriesId}",
+        "definition": {
+          "entityName": "Series",
+          "schema": {
+            "$ref": "#/backend/entities/Series"
+          },
+          "description": "Stores series information. Assumes public read access or admin-managed.",
+          "params": [
+            {
+              "name": "seriesId",
+              "description": "The unique identifier for the series."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/userPreferences/{userPreferenceId}",
+        "definition": {
+          "entityName": "UserPreference",
+          "schema": {
+            "$ref": "#/backend/entities/UserPreference"
+          },
+          "description": "Stores user preferences for movies and series. Uses path-based ownership for access control.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user."
+            },
+            {
+              "name": "userPreferenceId",
+              "description": "The unique identifier for the user preference."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/recommendations/{recommendationId}",
+        "definition": {
+          "entityName": "Recommendation",
+          "schema": {
+            "$ref": "#/backend/entities/Recommendation"
+          },
+          "description": "Stores movie and series recommendations for a user. Uses path-based ownership for access control.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user."
+            },
+            {
+              "name": "recommendationId",
+              "description": "The unique identifier for the recommendation."
+            }
+          ]
+        }
+      },
+      {
+        "path": "/users/{userId}/viewingHistory/{viewingHistoryId}",
+        "definition": {
+          "entityName": "ViewingHistory",
+          "schema": {
+            "$ref": "#/backend/entities/ViewingHistory"
+          },
+          "description": "Stores the viewing history of a user for movies and series. Uses path-based ownership for access control.",
+          "params": [
+            {
+              "name": "userId",
+              "description": "The unique identifier for the user."
+            },
+            {
+              "name": "viewingHistoryId",
+              "description": "The unique identifier for the viewing history entry."
+            }
+          ]
+        }
+      }
+    ],
+    "reasoning": "The Firestore structure is designed to support a movie and series recommendation system (CineScope) with a focus on personalized recommendations, user preferences, and viewing history. The design prioritizes security, scalability, and debuggability by adhering to the principles of Authorization Independence, Structural Segregation, Access Modeling, and Data Clarity. \n\n**Authorization Independence:** Authorization Independence is achieved primarily through path-based ownership for private user data.  User preferences and viewing history are stored under the `/users/{userId}` path, ensuring that access control can be enforced without needing to `get()` parent documents. Collaborative access is not a requirement, so membership maps are not required.\n\n**Structural Segregation:** The structure segregates user-specific data (preferences, viewing history, recommendations) from global movie and series data.  This allows for clear and simple security rules, as access to user data is restricted to the authenticated user, while movie and series data can be publicly accessible or managed by admins (if that functionality is added later).\n\n**Access Modeling:** Access to user data is modeled using path-based ownership. Data like `UserPreference`, `Recommendation` and `ViewingHistory` exist as subcollections of the `/users/{userId}` collection.  This pattern simplifies security rules because the `request.auth.uid` always matches the `userId` parameter in the path.\n\n**QAPs (Rules are not Filters):** The structure supports secure `list` operations. Because user-specific data is stored under their respective `/users/{userId}` path, listing preferences, recommendations, or viewing history is naturally scoped to the authenticated user. Listing movies and series is also secure because this data is public (or admin-managed).\n\n**Other Considerations**:\n*   Consider adding an index on `UserPreference` for queries filtering by `movieId` or `seriesId`.\n*   The current structure assumes that the Movie and Series data are globally accessible read-only. If there's a need to manage content, separate admin collections with appropriate security rules can be added."
+  }
+}
