@@ -55,7 +55,7 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.alphacoders.com/132/1327956.jpeg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/fundoNetflix.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
