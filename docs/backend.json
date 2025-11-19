@@ -8,28 +8,28 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "Unique identifier for the user."
+          "description": "Unique identifier for the user (matches Firebase Auth UID)."
         },
         "email": {
           "type": "string",
           "description": "User's email address.",
           "format": "email"
         },
-        "username": {
+        "displayName": {
           "type": "string",
-          "description": "The user's username or display name."
+          "description": "The user's display name."
         },
-        "dateJoined": {
+        "createdAt": {
           "type": "string",
-          "description": "Date and time the user joined the CineScope platform.",
+          "description": "Date and time the user joined.",
           "format": "date-time"
         }
       },
       "required": [
         "id",
         "email",
-        "username",
-        "dateJoined"
+        "displayName",
+        "createdAt"
       ]
     },
     "Movie": {
@@ -235,121 +235,47 @@
   },
   "auth": {
     "providers": [
-      "password",
-      "anonymous"
+      "password"
     ]
   },
   "firestore": {
-    "structure": [
-      {
-        "path": "/users/{userId}",
-        "definition": {
-          "entityName": "User",
-          "schema": {
-            "$ref": "#/backend/entities/User"
-          },
-          "description": "Stores user profile information. Uses path-based ownership for access control.",
-          "params": [
-            {
-              "name": "userId",
-              "description": "The unique identifier for the user."
-            }
-          ]
-        }
+    "/users/{userId}": {
+      "schema": {
+        "$ref": "#/entities/User"
       },
-      {
-        "path": "/movies/{movieId}",
-        "definition": {
-          "entityName": "Movie",
-          "schema": {
-            "$ref": "#/backend/entities/Movie"
-          },
-          "description": "Stores movie information. Assumes public read access or admin-managed.",
-          "params": [
-            {
-              "name": "movieId",
-              "description": "The unique identifier for the movie."
-            }
-          ]
-        }
+      "description": "Stores user profile information. Uses path-based ownership for access control."
+    },
+    "/movies/{movieId}": {
+      "schema": {
+        "$ref": "#/entities/Movie"
       },
-      {
-        "path": "/series/{seriesId}",
-        "definition": {
-          "entityName": "Series",
-          "schema": {
-            "$ref": "#/backend/entities/Series"
-          },
-          "description": "Stores series information. Assumes public read access or admin-managed.",
-          "params": [
-            {
-              "name": "seriesId",
-              "description": "The unique identifier for the series."
-            }
-          ]
-        }
+      "description": "Stores movie information. Assumes public read access or admin-managed."
+    },
+    "/series/{seriesId}": {
+      "schema": {
+        "$ref": "#/entities/Series"
       },
-      {
-        "path": "/users/{userId}/userPreferences/{userPreferenceId}",
-        "definition": {
-          "entityName": "UserPreference",
-          "schema": {
-            "$ref": "#/backend/entities/UserPreference"
-          },
-          "description": "Stores user preferences for movies and series. Uses path-based ownership for access control.",
-          "params": [
-            {
-              "name": "userId",
-              "description": "The unique identifier for the user."
-            },
-            {
-              "name": "userPreferenceId",
-              "description": "The unique identifier for the user preference."
-            }
-          ]
-        }
+      "description": "Stores series information. Assumes public read access or admin-managed."
+    },
+    "/users/{userId}/userPreferences/{userPreferenceId}": {
+      "schema": {
+        "$ref": "#/entities/UserPreference"
       },
-      {
-        "path": "/users/{userId}/recommendations/{recommendationId}",
-        "definition": {
-          "entityName": "Recommendation",
-          "schema": {
-            "$ref": "#/backend/entities/Recommendation"
-          },
-          "description": "Stores movie and series recommendations for a user. Uses path-based ownership for access control.",
-          "params": [
-            {
-              "name": "userId",
-              "description": "The unique identifier for the user."
-            },
-            {
-              "name": "recommendationId",
-              "description": "The unique identifier for the recommendation."
-            }
-          ]
-        }
+      "description": "Stores user preferences for movies and series. Uses path-based ownership for access control."
+    },
+    "/users/{userId}/recommendations/{recommendationId}": {
+      "schema": {
+        "$ref": "#/entities/Recommendation"
       },
-      {
-        "path": "/users/{userId}/viewingHistory/{viewingHistoryId}",
-        "definition": {
-          "entityName": "ViewingHistory",
-          "schema": {
-            "$ref": "#/backend/entities/ViewingHistory"
-          },
-          "description": "Stores the viewing history of a user for movies and series. Uses path-based ownership for access control.",
-          "params": [
-            {
-              "name": "userId",
-              "description": "The unique identifier for the user."
-            },
-            {
-              "name": "viewingHistoryId",
-              "description": "The unique identifier for the viewing history entry."
-            }
-          ]
-        }
-      }
-    ],
-    "reasoning": "The Firestore structure is designed to support a movie and series recommendation system (CineScope) with a focus on personalized recommendations, user preferences, and viewing history. The design prioritizes security, scalability, and debuggability by adhering to the principles of Authorization Independence, Structural Segregation, Access Modeling, and Data Clarity. \n\n**Authorization Independence:** Authorization Independence is achieved primarily through path-based ownership for private user data.  User preferences and viewing history are stored under the `/users/{userId}` path, ensuring that access control can be enforced without needing to `get()` parent documents. Collaborative access is not a requirement, so membership maps are not required.\n\n**Structural Segregation:** The structure segregates user-specific data (preferences, viewing history, recommendations) from global movie and series data.  This allows for clear and simple security rules, as access to user data is restricted to the authenticated user, while movie and series data can be publicly accessible or managed by admins (if that functionality is added later).\n\n**Access Modeling:** Access to user data is modeled using path-based ownership. Data like `UserPreference`, `Recommendation` and `ViewingHistory` exist as subcollections of the `/users/{userId}` collection.  This pattern simplifies security rules because the `request.auth.uid` always matches the `userId` parameter in the path.\n\n**QAPs (Rules are not Filters):** The structure supports secure `list` operations. Because user-specific data is stored under their respective `/users/{userId}` path, listing preferences, recommendations, or viewing history is naturally scoped to the authenticated user. Listing movies and series is also secure because this data is public (or admin-managed).\n\n**Other Considerations**:\n*   Consider adding an index on `UserPreference` for queries filtering by `movieId` or `seriesId`.\n*   The current structure assumes that the Movie and Series data are globally accessible read-only. If there's a need to manage content, separate admin collections with appropriate security rules can be added."
+      "description": "Stores movie and series recommendations for a user. Uses path-based ownership for access control."
+    },
+    "/users/{userId}/viewingHistory/{viewingHistoryId}": {
+      "schema": {
+        "$ref": "#/entities/ViewingHistory"
+      },
+      "description": "Stores the viewing history of a user for movies and series. Uses path-based ownership for access control."
+    }
   }
 }
+
+    
