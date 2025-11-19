@@ -4,6 +4,7 @@ import {
   Auth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  UserCredential
 } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp, Firestore } from 'firebase/firestore';
 import { errorEmitter } from '../error-emitter';
@@ -14,55 +15,43 @@ type Credentials = {
   password: string;
 };
 
-// This function is non-blocking.
-export function signUpWithEmail(
+export async function signUpWithEmail(
   auth: Auth,
   firestore: Firestore,
   credentials: Credentials,
   displayName: string
-) {
-  createUserWithEmailAndPassword(auth, credentials.email, credentials.password)
-    .then((userCredential) => {
-      // After user is created in Auth, create user profile in Firestore
-      const user = userCredential.user;
-      const userProfile = {
-        id: user.uid,
-        email: user.email,
-        displayName: displayName,
-        createdAt: serverTimestamp(),
-      };
-      const userDocRef = doc(firestore, 'users', user.uid);
+): Promise<UserCredential> {
+  const userCredential = await createUserWithEmailAndPassword(auth, credentials.email, credentials.password);
+  
+  const user = userCredential.user;
+  const userProfile = {
+    id: user.uid,
+    email: user.email,
+    displayName: displayName,
+    createdAt: serverTimestamp(),
+  };
+  const userDocRef = doc(firestore, 'users', user.uid);
 
-      // Set document in a non-blocking way
-      setDoc(userDocRef, userProfile).catch((error) => {
-        // Emit a contextual error if Firestore write fails
-        errorEmitter.emit(
-          'permission-error',
-          new FirestorePermissionError({
-            path: userDocRef.path,
-            operation: 'create',
-            requestResourceData: userProfile,
-          })
-        );
-      });
-    })
-    .catch((error) => {
-      // The onAuthStateChanged listener will handle the UI state.
-      // You might want to log this for debugging, but don't show it to the user
-      // unless it's a specific, user-actionable error.
-      console.error('Error during sign up:', error);
-    });
+  // Set document in a non-blocking way
+  setDoc(userDocRef, userProfile).catch((error) => {
+    // Emit a contextual error if Firestore write fails
+    errorEmitter.emit(
+      'permission-error',
+      new FirestorePermissionError({
+        path: userDocRef.path,
+        operation: 'create',
+        requestResourceData: userProfile,
+      })
+    );
+    // Even if firestore fails, we don't block the auth flow.
+    // The error will be logged for developers.
+    console.error("Failed to create user profile in Firestore:", error);
+  });
+  
+  return userCredential;
 }
 
-// This function is non-blocking.
-export function signInWithEmail(auth: Auth, credentials: Credentials) {
-  signInWithEmailAndPassword(auth, credentials.email, credentials.password).catch(
-    (error) => {
-      // Similar to sign-up, let onAuthStateChanged handle global state.
-      // You could show a toast for "invalid-credential" here if desired.
-      console.error('Error during sign in:', error);
-    }
-  );
+export async function signInWithEmail(auth: Auth, credentials: Credentials): Promise<UserCredential> {
+  // This will now throw an error on failure, which will be caught in the UI.
+  return signInWithEmailAndPassword(auth, credentials.email, credentials.password);
 }
-
-    

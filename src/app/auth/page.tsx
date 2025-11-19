@@ -29,7 +29,6 @@ import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
 import { useFirebase } from '@/firebase';
 import { signInWithEmail, signUpWithEmail } from '@/firebase/auth/auth-service';
-import { onAuthStateChanged } from 'firebase/auth';
 
 const formSchema = z.object({
   displayName: z.string().optional(),
@@ -66,42 +65,55 @@ export default function AuthPage() {
     }
   }, [user, isUserLoading, router]);
 
-  React.useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-        setIsLoading(false);
-        if (user) {
-          toast({
-            title: isSignUp ? 'Cadastro realizado!' : 'Login efetuado!',
-            description: `Bem-vindo(a) de volta, ${user.email}!`,
-          });
-          router.push('/preferences');
-        }
-    }, (error) => {
-        setIsLoading(false);
-        const friendlyMessage =
-          error.code === 'auth/invalid-credential'
-            ? 'E-mail ou senha inválidos. Por favor, tente novamente.'
-            : 'Ocorreu um erro. Por favor, tente novamente.';
-        setAuthError(friendlyMessage);
-        console.error('Auth Error:', error);
+  const handleAuthSuccess = (user: any) => {
+    setIsLoading(false);
+    toast({
+      title: isSignUp ? 'Cadastro realizado!' : 'Login efetuado!',
+      description: `Bem-vindo(a) de volta, ${user.email}!`,
     });
+    router.push('/preferences');
+  };
 
-    return () => unsubscribe();
-  }, [auth, router, toast, isSignUp]);
+  const handleAuthError = (error: any) => {
+    setIsLoading(false);
+    let friendlyMessage = 'Ocorreu um erro. Por favor, tente novamente.';
+    if (error.code) {
+      switch (error.code) {
+        case 'auth/invalid-credential':
+        case 'auth/user-not-found':
+        case 'auth/wrong-password':
+          friendlyMessage = 'E-mail ou senha inválidos. Por favor, tente novamente.';
+          break;
+        case 'auth/email-already-in-use':
+          friendlyMessage = 'Este e-mail já está em uso. Por favor, tente fazer login.';
+          break;
+        default:
+          console.error('Auth Error:', error);
+      }
+    }
+    setAuthError(friendlyMessage);
+  };
 
 
-  const onSubmit = (values: FormValues) => {
+  const onSubmit = async (values: FormValues) => {
     setIsLoading(true);
     setAuthError(null);
-    if (isSignUp) {
+
+    try {
+      if (isSignUp) {
         if (!values.displayName) {
-            form.setError('displayName', {message: "O nome é obrigatório"});
-            setIsLoading(false);
-            return;
+          form.setError('displayName', { message: "O nome é obrigatório" });
+          setIsLoading(false);
+          return;
         }
-      signUpWithEmail(auth, firestore, values, values.displayName);
-    } else {
-      signInWithEmail(auth, values);
+        const userCredential = await signUpWithEmail(auth, firestore, values, values.displayName);
+        handleAuthSuccess(userCredential.user);
+      } else {
+        const userCredential = await signInWithEmail(auth, values);
+        handleAuthSuccess(userCredential.user);
+      }
+    } catch (error) {
+      handleAuthError(error);
     }
   };
   
