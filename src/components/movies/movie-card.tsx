@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -11,6 +12,7 @@ type MovieCardProps = {
   onSelect?: (id: string) => void;
   isSelected?: boolean;
   className?: string;
+  index?: number;
 };
 
 export function MovieCard({
@@ -18,6 +20,7 @@ export function MovieCard({
   onSelect,
   isSelected,
   className,
+  index,
 }: MovieCardProps) {
   const handleClick = () => {
     if (onSelect) {
@@ -51,6 +54,12 @@ export function MovieCard({
         {isSelected && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/60 transition-opacity duration-300">
             <CheckCircle2 className="h-16 w-16 text-accent" />
+          </div>
+        )}
+
+        {index !== undefined && onSelect && (
+          <div className="absolute bottom-2 right-2 flex h-6 w-6 items-center justify-center rounded-full bg-black/50 text-xs font-bold text-white">
+            {index + 1}
           </div>
         )}
 

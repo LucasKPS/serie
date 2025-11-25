@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState } from "react";
@@ -86,6 +87,7 @@ export default function PreferencesGrid() {
             isSelected={selectedMovieIds.has(movie.id)}
             className="animate-fade-in-up"
             style={{ animationDelay: `${index * 50}ms` }}
+            index={index}
           />
         ))}
       </div>
