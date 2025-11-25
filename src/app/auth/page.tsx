@@ -5,7 +5,7 @@ import * as React from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { AlertTriangle, Eye, EyeOff, Loader2 } from 'lucide-react';
+import { AlertTriangle, Eye, EyeOff, Loader2, Clapperboard } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/firebase/auth/use-user';
 import { Button } from '@/components/ui/button';
@@ -131,10 +131,14 @@ export default function AuthPage() {
 
   return (
     <main className="auth-page flex min-h-screen w-full items-center justify-center p-4">
-      <Card className="w-full max-w-sm bg-card/60">
+      <Card className="w-full max-w-sm bg-card/60 backdrop-blur-sm">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
-            <CardHeader>
+            <CardHeader className="text-center">
+              <div className="flex justify-center items-center gap-2 mb-4">
+                <Clapperboard className="w-8 h-8 text-accent"/>
+                <span className="text-2xl font-headline">CineScope</span>
+              </div>
               <CardTitle className="text-2xl font-headline">
                 {isSignUp ? 'Criar uma Conta' : 'Bem-vindo de Volta!'}
               </CardTitle>
