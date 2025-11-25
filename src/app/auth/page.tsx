@@ -31,7 +31,7 @@ import { useFirebase } from '@/firebase';
 import { signInWithEmail, signUpWithEmail } from '@/firebase/auth/auth-service';
 import './auth.css';
 import { cn } from '@/lib/utils';
-import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const formSchema = z.object({
   displayName: z.string().optional(),
@@ -207,12 +207,13 @@ export default function AuthPage() {
             </CardContent>
             <CardFooter className="flex flex-col gap-4">
               {authError && (
-                <Alert variant="destructive">
-                  <AlertTriangle className="h-4 w-4" />
-                  <AlertDescription>
-                    {authError}
-                  </AlertDescription>
-                </Alert>
+                 <Alert variant="destructive">
+                 <AlertTriangle className="h-4 w-4" />
+                 <AlertTitle>Erro de Autenticação</AlertTitle>
+                 <AlertDescription>
+                   {authError}
+                 </AlertDescription>
+               </Alert>
               )}
               <Button className="w-full" type="submit" disabled={isLoading}>
                 {isLoading && (
