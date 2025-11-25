@@ -56,14 +56,6 @@ export function MovieCard({
           </div>
         )}
 
-        {index !== undefined && onSelect && (
-          <>
-            <span className="absolute bottom-1 right-2 text-5xl font-bold text-white/50 mix-blend-overlay [text-shadow:1px_1px_3px_rgba(0,0,0,0.7)]">
-              {index + 1}
-            </span>
-          </>
-        )}
-
         {!onSelect && (
           <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4 pt-8">
             <h3 className="text-lg font-bold text-white drop-shadow-lg">
