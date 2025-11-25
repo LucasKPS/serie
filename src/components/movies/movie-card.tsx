@@ -37,6 +37,7 @@ export function MovieCard({
         className
       )}
       onClick={handleClick}
+      style={index !== undefined ? { animationDelay: `${index * 50}ms` } : {}}
     >
       <CardContent className="p-0">
         <div className="aspect-[2/3] w-full">
@@ -61,12 +62,6 @@ export function MovieCard({
             <h3 className="text-lg font-bold text-white drop-shadow-lg">
               {movie.title}
             </h3>
-          </div>
-        )}
-
-        {index !== undefined && onSelect && (
-          <div className="absolute bottom-1 right-2 text-2xl font-bold text-white mix-blend-overlay drop-shadow-2xl pointer-events-none">
-            {index + 1}
           </div>
         )}
       </CardContent>
