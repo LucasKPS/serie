@@ -43,15 +43,15 @@ export default function PreferencesPage() {
       </button>
       <div className="text-center mb-8 md:mb-12">
         <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4 font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
-          Bem-vindo ao CineScope
+          Bem-vindo ao RecsCine
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
           Para começar, selecione alguns filmes ou séries que você gostou. Isso nos ajudará a criar recomendações personalizadas para você.
         </p>
       </div>
-      <PreferencesGrid />
+      <div className="pb-28">
+        <PreferencesGrid />
+      </div>
     </main>
   );
 }
-
-    

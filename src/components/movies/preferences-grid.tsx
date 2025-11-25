@@ -89,22 +89,24 @@ export default function PreferencesGrid() {
           />
         ))}
       </div>
-      <div className="mt-8 md:mt-12 text-center">
-        <Button
-          onClick={handleSubmit}
-          disabled={isLoading}
-          size="lg"
-          className="bg-accent text-accent-foreground hover:bg-accent/90"
-        >
-          {isLoading ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Gerando Recomendações...
-            </>
-          ) : (
-            "Continuar"
-          )}
-        </Button>
+      <div className="fixed bottom-0 left-0 right-0 p-4 bg-background/80 backdrop-blur-sm border-t border-border z-10">
+        <div className="container mx-auto flex justify-center">
+            <Button
+              onClick={handleSubmit}
+              disabled={isLoading}
+              size="lg"
+              className="bg-accent text-accent-foreground hover:bg-accent/90"
+            >
+              {isLoading ? (
+                <>
+                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  Gerando Recomendações...
+                </>
+              ) : (
+                "Continuar"
+              )}
+            </Button>
+        </div>
       </div>
     </>
   );
