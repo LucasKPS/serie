@@ -22,7 +22,6 @@ import {
   FormControl,
   FormField,
   FormItem,
-  FormLabel,
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
@@ -131,7 +130,7 @@ export default function AuthPage() {
 
   return (
     <main className="auth-page flex min-h-screen w-full items-center justify-center p-4">
-      <Card className="w-full max-w-sm bg-card/60">
+      <Card className="w-full max-w-sm bg-card/60 backdrop-blur-sm">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)}>
             <CardHeader className="text-center">
@@ -155,9 +154,8 @@ export default function AuthPage() {
                   name="displayName"
                   render={({ field }) => (
                     <FormItem className="transition-transform duration-200 hover:scale-105">
-                      <FormLabel>Nome</FormLabel>
                       <FormControl>
-                        <Input placeholder="Seu nome completo" {...field} />
+                        <Input placeholder="Nome" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -169,11 +167,10 @@ export default function AuthPage() {
                 name="email"
                 render={({ field }) => (
                   <FormItem className="transition-transform duration-200 hover:scale-105">
-                    <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input
                         type="email"
-                        placeholder="m@exemplo.com"
+                        placeholder="Email"
                         {...field}
                       />
                     </FormControl>
@@ -186,11 +183,11 @@ export default function AuthPage() {
                 name="password"
                 render={({ field }) => (
                   <FormItem className="transition-transform duration-200 hover:scale-105">
-                    <FormLabel>Senha</FormLabel>
                     <FormControl>
                       <div className="relative">
                         <Input
                           type={showPassword ? 'text' : 'password'}
+                          placeholder="Senha"
                           {...field}
                         />
                         <Button
