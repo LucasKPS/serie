@@ -1,4 +1,3 @@
-
 'use client';
 
 import * as React from 'react';
@@ -244,7 +243,7 @@ export default function AuthPage() {
         </Card>
       </main>
       <footer className="py-4 text-center text-xs text-white/50">
-        <p>&copy; 2024 CineScope. Todos os direitos reservados.</p>
+        <p>&copy; 2025 CineScope. Todos os direitos reservados.</p>
       </footer>
     </div>
   );
