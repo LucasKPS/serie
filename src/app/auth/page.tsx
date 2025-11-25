@@ -5,7 +5,7 @@ import * as React from 'react';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import { Eye, EyeOff, Loader2 } from 'lucide-react';
+import { AlertTriangle, Eye, EyeOff, Loader2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import { useUser } from '@/firebase/auth/use-user';
 import { Button } from '@/components/ui/button';
@@ -31,6 +31,7 @@ import { useFirebase } from '@/firebase';
 import { signInWithEmail, signUpWithEmail } from '@/firebase/auth/auth-service';
 import './auth.css';
 import { cn } from '@/lib/utils';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 
 const formSchema = z.object({
   displayName: z.string().optional(),
@@ -205,7 +206,14 @@ export default function AuthPage() {
               />
             </CardContent>
             <CardFooter className="flex flex-col gap-4">
-              {authError && <p className="text-sm text-destructive">{authError}</p>}
+              {authError && (
+                <Alert variant="destructive">
+                  <AlertTriangle className="h-4 w-4" />
+                  <AlertDescription>
+                    {authError}
+                  </AlertDescription>
+                </Alert>
+              )}
               <Button className="w-full" type="submit" disabled={isLoading}>
                 {isLoading && (
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
