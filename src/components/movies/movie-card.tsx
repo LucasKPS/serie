@@ -15,6 +15,22 @@ type MovieCardProps = {
   index?: number;
 };
 
+const NetflixLogoN = () => (
+  <svg
+    width="18"
+    height="34"
+    viewBox="0 0 18 34"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="drop-shadow-lg"
+  >
+    <path
+      d="M17.436 33.444H12.648L12.42 21.438L5.598 33.444H0.576V0.558002H5.364V12.798L12.186 0.558002H17.208V33.444H17.436Z"
+      fill="#E50914"
+    />
+  </svg>
+);
+
 export function MovieCard({
   movie,
   onSelect,
@@ -58,9 +74,14 @@ export function MovieCard({
         )}
 
         {index !== undefined && onSelect && (
-          <span className="absolute bottom-2 right-2 text-lg font-bold text-white mix-blend-difference">
-            {index + 1}
-          </span>
+          <>
+            <div className="absolute bottom-2 left-2">
+              <NetflixLogoN />
+            </div>
+            <span className="absolute bottom-2 right-2 text-lg font-bold text-white mix-blend-difference">
+              {index + 1}
+            </span>
+          </>
         )}
 
         {!onSelect && (
