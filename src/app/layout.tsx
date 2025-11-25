@@ -1,11 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Poppins } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { cn } from "@/lib/utils";
 import { FirebaseClientProvider } from "@/firebase/client-provider";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["700"],
+  variable: "--font-poppins",
+});
 
 export const metadata: Metadata = {
   title: "CineScope",
@@ -22,7 +28,8 @@ export default function RootLayout({
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased",
-          inter.variable
+          inter.variable,
+          poppins.variable
         )}
       >
         <FirebaseClientProvider>
@@ -33,5 +40,3 @@ export default function RootLayout({
     </html>
   );
 }
-
-    
