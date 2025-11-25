@@ -25,6 +25,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'picsum.photos' },
       { protocol: 'https', hostname: 'placehold.co' },
       { protocol: 'https', hostname: 'www.themoviedb.org' },
+      { protocol: 'https', hostname: 'br.web.img3.acsta.net' },
     ],
   },
   async redirects() {
