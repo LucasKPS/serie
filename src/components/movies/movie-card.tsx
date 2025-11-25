@@ -63,6 +63,12 @@ export function MovieCard({
             </h3>
           </div>
         )}
+
+        {index !== undefined && onSelect && (
+          <div className="absolute bottom-1 right-2 text-7xl font-bold text-white mix-blend-overlay drop-shadow-2xl pointer-events-none">
+            {index + 1}
+          </div>
+        )}
       </CardContent>
     </Card>
   );
