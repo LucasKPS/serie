@@ -129,118 +129,123 @@ export default function AuthPage() {
   }
 
   return (
-    <main className="auth-page flex min-h-screen w-full items-center justify-center p-4">
-      <Card className="w-full max-w-sm bg-card/60">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)}>
-            <CardHeader className="text-center">
-              <div className="flex justify-center items-center gap-2 mb-4">
-                <Clapperboard className="w-8 h-8 text-accent"/>
-                <span className="text-2xl font-headline">CineScope</span>
-              </div>
-              <CardTitle className="text-2xl font-headline">
-                {isSignUp ? 'Criar uma Conta' : 'Bem-vindo de Volta!'}
-              </CardTitle>
-              <CardDescription>
-                {isSignUp
-                  ? 'Preencha os campos para se cadastrar.'
-                  : 'Digite suas credenciais para acessar sua conta.'}
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="grid gap-4">
-              {isSignUp && (
+    <div className="auth-page flex min-h-screen w-full flex-col p-4">
+      <main className="flex flex-grow items-center justify-center">
+        <Card className="w-full max-w-sm bg-card/60">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)}>
+              <CardHeader className="text-center">
+                <div className="flex justify-center items-center gap-2 mb-4">
+                  <Clapperboard className="w-8 h-8 text-accent"/>
+                  <span className="text-2xl font-headline">CineScope</span>
+                </div>
+                <CardTitle className="text-2xl font-headline">
+                  {isSignUp ? 'Criar uma Conta' : 'Bem-vindo de Volta!'}
+                </CardTitle>
+                <CardDescription>
+                  {isSignUp
+                    ? 'Preencha os campos para se cadastrar.'
+                    : 'Digite suas credenciais para acessar sua conta.'}
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="grid gap-4">
+                {isSignUp && (
+                  <FormField
+                    control={form.control}
+                    name="displayName"
+                    render={({ field }) => (
+                      <FormItem className="transition-transform duration-200 hover:scale-105">
+                        <FormControl>
+                          <Input placeholder="Nome" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                )}
                 <FormField
                   control={form.control}
-                  name="displayName"
+                  name="email"
                   render={({ field }) => (
                     <FormItem className="transition-transform duration-200 hover:scale-105">
                       <FormControl>
-                        <Input placeholder="Nome" {...field} />
+                        <Input
+                          type="email"
+                          placeholder="Email"
+                          {...field}
+                        />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-              )}
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem className="transition-transform duration-200 hover:scale-105">
-                    <FormControl>
-                      <Input
-                        type="email"
-                        placeholder="Email"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
+                <FormField
+                  control={form.control}
+                  name="password"
+                  render={({ field }) => (
+                    <FormItem className="transition-transform duration-200 hover:scale-105">
+                      <FormControl>
+                        <div className="relative">
+                          <Input
+                            type={showPassword ? 'text' : 'password'}
+                            placeholder="Senha"
+                            {...field}
+                          />
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            className="absolute right-1 top-1/2 h-7 w-7 -translate-y-1/2 text-muted-foreground"
+                            onClick={() => setShowPassword(!showPassword)}
+                          >
+                            {showPassword ? <EyeOff /> : <Eye />}
+                          </Button>
+                        </div>
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </CardContent>
+              <CardFooter className="flex flex-col gap-4">
+                {authError && (
+                  <Alert variant="destructive">
+                  <AlertTriangle className="h-4 w-4" />
+                  <AlertTitle>Erro de Autenticação</AlertTitle>
+                  <AlertDescription>
+                    {authError}
+                  </AlertDescription>
+                </Alert>
                 )}
-              />
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem className="transition-transform duration-200 hover:scale-105">
-                    <FormControl>
-                      <div className="relative">
-                        <Input
-                          type={showPassword ? 'text' : 'password'}
-                          placeholder="Senha"
-                          {...field}
-                        />
-                        <Button
-                          type="button"
-                          variant="ghost"
-                          size="icon"
-                          className="absolute right-1 top-1/2 h-7 w-7 -translate-y-1/2 text-muted-foreground"
-                          onClick={() => setShowPassword(!showPassword)}
-                        >
-                          {showPassword ? <EyeOff /> : <Eye />}
-                        </Button>
-                      </div>
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </CardContent>
-            <CardFooter className="flex flex-col gap-4">
-              {authError && (
-                 <Alert variant="destructive">
-                 <AlertTriangle className="h-4 w-4" />
-                 <AlertTitle>Erro de Autenticação</AlertTitle>
-                 <AlertDescription>
-                   {authError}
-                 </AlertDescription>
-               </Alert>
-              )}
-              <Button className="w-full" type="submit" disabled={isLoading}>
-                {isLoading && (
-                  <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                )}
-                {isSignUp ? 'Cadastrar' : 'Entrar'}
-              </Button>
-              <div className="text-center text-sm text-muted-foreground">
-                {isSignUp ? 'Já tem uma conta?' : 'Não tem uma conta?'}
-                <Button
-                  variant="link"
-                  type="button"
-                  onClick={() => {
-                    setIsSignUp(!isSignUp);
-                    setAuthError(null);
-                    form.reset();
-                  }}
-                  className="p-1"
-                >
-                  {isSignUp ? 'Entrar' : 'Cadastre-se'}
+                <Button className="w-full" type="submit" disabled={isLoading}>
+                  {isLoading && (
+                    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                  )}
+                  {isSignUp ? 'Cadastrar' : 'Entrar'}
                 </Button>
-              </div>
-            </CardFooter>
-          </form>
-        </Form>
-      </Card>
-    </main>
+                <div className="text-center text-sm text-muted-foreground">
+                  {isSignUp ? 'Já tem uma conta?' : 'Não tem uma conta?'}
+                  <Button
+                    variant="link"
+                    type="button"
+                    onClick={() => {
+                      setIsSignUp(!isSignUp);
+                      setAuthError(null);
+                      form.reset();
+                    }}
+                    className="p-1"
+                  >
+                    {isSignUp ? 'Entrar' : 'Cadastre-se'}
+                  </Button>
+                </div>
+              </CardFooter>
+            </form>
+          </Form>
+        </Card>
+      </main>
+      <footer className="py-4 text-center text-xs text-white/50">
+        <p>&copy; 2024 CineScope. Todos os direitos reservados.</p>
+      </footer>
+    </div>
   );
 }
