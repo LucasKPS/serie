@@ -23,6 +23,11 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'www.europanet.com.br' },
       { protocol: 'https', hostname: 'picsum.photos' },
       { protocol: 'https', hostname: 'placehold.co' },
+      { protocol: 'https', hostname: 'images.alphacoders.com' },
+      { protocol: 'https', hostname: 'picfiles.alphacoders.com' },
+      { protocol: 'https', hostname: 'images8.alphacoders.com' },
+      { protocol: 'https', hostname: 'images5.alphacoders.com' },
+      { protocol: 'https', hostname: 'images2.alphacoders.com' },
     ],
   },
 };
