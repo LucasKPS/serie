@@ -65,7 +65,7 @@ export function MovieCard({
         )}
 
         {index !== undefined && onSelect && (
-          <div className="absolute bottom-1 right-2 text-6xl font-bold text-white mix-blend-overlay drop-shadow-2xl pointer-events-none">
+          <div className="absolute bottom-1 right-2 text-2xl font-bold text-white mix-blend-overlay drop-shadow-2xl pointer-events-none">
             {index + 1}
           </div>
         )}
