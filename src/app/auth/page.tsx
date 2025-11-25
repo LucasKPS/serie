@@ -149,7 +149,7 @@ export default function AuthPage() {
                   control={form.control}
                   name="displayName"
                   render={({ field }) => (
-                    <FormItem className="transition-transform duration-200 hover:scale-105">
+                    <FormItem className="transition-transform duration-200 hover:scale-90">
                       <FormLabel>Nome</FormLabel>
                       <FormControl>
                         <Input placeholder="Seu nome completo" {...field} />
@@ -163,7 +163,7 @@ export default function AuthPage() {
                 control={form.control}
                 name="email"
                 render={({ field }) => (
-                  <FormItem className="transition-transform duration-200 hover:scale-105">
+                  <FormItem className="transition-transform duration-200 hover:scale-90">
                     <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input
@@ -180,7 +180,7 @@ export default function AuthPage() {
                 control={form.control}
                 name="password"
                 render={({ field }) => (
-                  <FormItem className="transition-transform duration-200 hover:scale-105">
+                  <FormItem className="transition-transform duration-200 hover:scale-90">
                     <FormLabel>Senha</FormLabel>
                     <FormControl>
                       <div className="relative">
