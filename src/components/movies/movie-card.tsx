@@ -58,7 +58,7 @@ export function MovieCard({
 
         {index !== undefined && onSelect && (
           <>
-            <span className="absolute bottom-2 left-2 text-6xl font-bold text-white/50 mix-blend-overlay [text-shadow:2px_2px_4px_rgba(0,0,0,0.7)]">
+            <span className="absolute bottom-1 right-2 text-5xl font-bold text-white/50 mix-blend-overlay [text-shadow:1px_1px_3px_rgba(0,0,0,0.7)]">
               {index + 1}
             </span>
           </>
