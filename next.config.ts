@@ -24,4 +24,13 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'www.europanet.com.br' },
       { protocol: 'https', hostname: 'picsum.photos' },
       { protocol: 'https', hostname: 'placehold.co' },
-      { protocol
+    ],
+  },
+  async redirects() {
+    return [];
+  },
+  reactStrictMode: true,
+  // Other configuration options can be added here
+};
+
+module.exports = nextConfig;
