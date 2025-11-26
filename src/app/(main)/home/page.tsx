@@ -63,7 +63,7 @@ export default function HomePage() {
               <Link href={`/movie/${movie.id}`}>
                 <div className="aspect-[2/3] w-full max-w-sm mx-auto group sticky top-24">
                     <Image
-                      src={movie.posterUrl}
+                      src={movie.posterUrl || `https://picsum.photos/seed/${movie.id}/500/750`}
                       alt={movie.title}
                       width={500}
                       height={750}
