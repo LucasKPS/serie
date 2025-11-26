@@ -239,7 +239,7 @@ export const movies: Movie[] = [
     description: 'Hundreds of cash-strapped players accept a strange invitation to compete in children\'s games. Inside, a tempting prize awaits with deadly high stakes.',
     genre: 'Thriller',
     cast: ['Lee Jung-jae', 'Park Hae-soo', 'Wi Ha-joon'],
-    posterUrl: 'https://image.tmdb.org/t/p/original/dDlEWAxCgsrJ1C6Jm4p42kI82l8.jpg',
+    posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9xtPB9p1KU15iD_zYBsrFGio_49GXOkyCfrh8Rgnngtzqk6fE',
     rating: 8.1,
     year: 2021,
     aiHint: 'survival drama',
@@ -1103,5 +1103,3 @@ export const movies: Movie[] = [
     aiHint: 'teen romance',
   }
 ];
-
-    
