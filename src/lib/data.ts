@@ -250,7 +250,7 @@ export const movies: Movie[] = [
     description: 'Wealth, lust, and betrayal set in the backdrop of Regency era England, seen through the eyes of the powerful Bridgerton family.',
     genre: 'Romance',
     cast: ['Phoebe Dynevor', 'Regé-Jean Page', 'Nicola Coughlan'],
-    posterUrl: 'https://image.tmdb.org/t/p/original/AbZ9GELJtD2t0z4c2y2tIO2gGvT.jpg',
+    posterUrl: 'https://resizing.flixster.com/138uPFHeLeB8oGxrkUdCSHQDAsE=/fit-in/705x460/v2/https://resizing.flixster.com/I_zHuKCiZSwuXD7jSZ3WHpnVngo=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvZjU3NzI1NTktNDBhNC00YTc4LThkZGYtODAxMTgwZmM3ZDlmLmpwZw==',
     rating: 7.3,
     year: 2020,
     aiHint: 'period romance',
