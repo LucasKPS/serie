@@ -338,7 +338,7 @@ export const movies: Movie[] = [
     description: 'Inspired by the adventures of Arsène Lupin, gentleman thief Assane Diop sets out to avenge his father for an injustice inflicted by a wealthy family.',
     genre: 'Crime',
     cast: ['Omar Sy', 'Ludivine Sagnier', 'Clotilde Hesme'],
-    posterUrl: 'https://image.tmdb.org/t/p/original/sgxawbJ5lIYWXLe3A74a95I0aA.jpg',
+    posterUrl: 'https://br.web.img2.acsta.net/c_310_420/pictures/20/12/02/16/22/0450183.jpg',
     rating: 7.5,
     year: 2021,
     aiHint: 'heist thriller',
@@ -1103,3 +1103,5 @@ export const movies: Movie[] = [
     aiHint: 'teen romance',
   }
 ];
+
+    
