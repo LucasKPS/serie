@@ -327,7 +327,7 @@ export const movies: Movie[] = [
     description: 'A family of former child heroes, now grown apart, must reunite to continue to protect the world.',
     genre: 'Action',
     cast: ['Elliot Page', 'Tom Hopper', 'David Castañeda'],
-    posterUrl: 'https://image.tmdb.org/t/p/original/qJRB789ceLryrLvOKrZqLKr2CGf.jpg',
+    posterUrl: 'https://images.ctfassets.net/4cd45et68cgf/5ubPW3UKcPpDwThgu4X01O/7556b6756fcb6168b11caab885117e24/PT-BR_CARAMELO_Main-Key-Art_Dupla_Vertical_4x5_sRGB_PRE.jpg?w=2000',
     rating: 8.0,
     year: 2019,
     aiHint: 'superhero action',
@@ -426,7 +426,7 @@ export const movies: Movie[] = [
     description: 'The world of the Vikings is brought to life through the journey of Ragnar Lothbrok, the first Viking to emerge from Norse legend and onto the pages of history.',
     genre: 'History',
     cast: ['Travis Fimmel', 'Katheryn Winnick', 'Clive Standen'],
-    posterUrl: 'https://image.tmdb.org/t/p/original/bQLrHIRNEkE3PdIWQrIAnXg9z3i.jpg',
+    posterUrl: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSlpPU5wgtEAMIdbM3J6eQPdWuNRpnaZscjuCQiJeam_5EXB_yi',
     rating: 8.5,
     year: 2013,
     aiHint: 'historical drama',
@@ -1031,7 +1031,7 @@ export const movies: Movie[] = [
     description: 'A road rage incident between two strangers — a failing contractor and an unfulfilled entrepreneur — sparks a feud that brings out their darkest impulses.',
     genre: 'Comedy',
     cast: ['Steven Yeun', 'Ali Wong', 'Joseph Lee'],
-    posterUrl: 'https://image.tmdb.org/t/p/original/2OFSG3jRxxd811VpgkSgX6SgC5r.jpg',
+    posterUrl: 'https://image.tmdb.org/t/p/original/2OFSG3jRxxd811VpgkSgC5rIWA2zQd4F2h.jpg',
     rating: 8.0,
     year: 2023,
     aiHint: 'dark comedy',
@@ -1103,3 +1103,5 @@ export const movies: Movie[] = [
     aiHint: 'teen romance',
   }
 ];
+
+    
