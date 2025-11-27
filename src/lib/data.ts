@@ -316,7 +316,7 @@ export const movies: Movie[] = [
     description: 'A chronicled look at the criminal exploits of Colombian drug lord Pablo Escobar, as well as the many other drug kingpins who plagued the country through the years.',
     genre: 'Crime',
     cast: ['Wagner Moura', 'Boyd Holbrook', 'Pedro Pascal'],
-    posterUrl: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTzg_eguqZMhQ1vdABQh0Zj6FmtSIktXNpL1kRKlIlNUWXcLgN1',
+    posterUrl: 'https://images.ctfassets.net/4cd45et68cgf/30ahhG9SI2h0qtMlIU8nXm/621568df5566b8f922239a8e94e2a0d2/EN-US_OPS1_Main_Illustrated_Vertical_27x40_RGB.jpg',
     rating: 8.8,
     year: 2015,
     aiHint: 'crime biopic',

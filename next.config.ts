@@ -26,9 +26,10 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'placehold.co' },
       { protocol: 'https', hostname: 'www.themoviedb.org' },
       { protocol: 'https', hostname: 'i.ebayimg.com' },
-      { protocol: 'https', hostname: 'bds.tv.br' },
+      { protocol: 'https 'https', hostname: 'bds.tv.br' },
       { protocol: 'https', hostname: 'static.wikia.nocookie.net' },
       { protocol: 'https', hostname: 'idris.com.br' },
+      { protocol: 'https', hostname: 'images.ctfassets.net' },
     ],
   },
   async redirects() {
