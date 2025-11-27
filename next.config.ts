@@ -30,6 +30,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'static.wikia.nocookie.net' },
       { protocol: 'https', hostname: 'idris.com.br' },
       { protocol: 'https', hostname: 'images.ctfassets.net' },
+      { protocol: 'https', hostname: 'lumiere-a.akamaihd.net' },
     ],
   },
   async redirects() {
@@ -40,5 +41,3 @@ const nextConfig: NextConfig = {
 };
 
 module.exports = nextConfig;
-
-    
