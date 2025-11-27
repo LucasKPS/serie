@@ -272,7 +272,7 @@ export const movies: Movie[] = [
     description: 'Orphaned at the tender age of nine, prodigious introvert Beth Harmon discovers and masters the game of chess in 1960s USA.',
     genre: 'Drama',
     cast: ['Anya Taylor-Joy', 'Bill Camp', 'Marielle Heller'],
-    posterUrl: 'https://image.tmdb.org/t/p/original/zU0htwEjIFnkyqIdxQ2RcZFCGb.jpg',
+    posterUrl: 'https://br.web.img3.acsta.net/pictures/18/12/10/14/01/0178829.jpg',
     rating: 8.6,
     year: 2020,
     aiHint: 'chess drama',
