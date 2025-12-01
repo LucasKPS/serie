@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -65,16 +66,16 @@ export default function Header() {
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link
-              href="/home"
+              href="/preferences"
               className="transition-colors hover:text-foreground/80 text-foreground"
             >
               Início
             </Link>
             <Link
-              href="/preferences"
+              href="/home"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
-              Preferências
+              Recomendações
             </Link>
           </nav>
         </div>
@@ -99,7 +100,7 @@ export default function Header() {
                 </Link>
                 <nav className="flex flex-col space-y-4">
                   <Link
-                    href="/home"
+                    href="/preferences"
                     className="flex items-center space-x-2 p-2 rounded-md hover:bg-accent"
                   >
                     <Home className="h-5 w-5" />
@@ -172,5 +173,3 @@ export default function Header() {
     </header>
   );
 }
-
-    
