@@ -42,12 +42,15 @@ export default function PreferencesPage() {
         <LogOut className="h-6 w-6 text-foreground" />
       </button>
       <div className="text-center mb-8 md:mb-12">
-        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4 font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
-          Bem-vindo ao RecsCine
+        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-2 font-headline bg-clip-text text-transparent bg-gradient-to-r from-primary via-accent to-primary">
+          Não sabe o que assistir?
         </h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-semibold tracking-tight text-muted-foreground mb-4">
+          Pode deixar que iremos te ajudar!
+        </h2>
+        <h3 className="text-lg md:text-xl text-muted-foreground/80 max-w-3xl mx-auto">
           Para começar, selecione alguns filmes ou séries que você gostou. Isso nos ajudará a criar recomendações personalizadas para você.
-        </p>
+        </h3>
       </div>
       <div className="pb-28">
         <PreferencesGrid />
