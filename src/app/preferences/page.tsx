@@ -49,7 +49,7 @@ export default function PreferencesPage() {
           Pode deixar que iremos te ajudar!
         </h2>
         <h3 className="text-lg md:text-xl text-muted-foreground/80 max-w-3xl mx-auto">
-          Para começar, selecione alguns filmes ou séries que você gostou. Isso nos ajudará a criar recomendações personalizadas para você.
+          Para começar, selecione 3 filmes ou séries que você gostou. Isso nos ajudará a criar recomendações personalizadas para você.
         </h3>
       </div>
       <div className="pb-28">

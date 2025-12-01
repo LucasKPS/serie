@@ -24,6 +24,14 @@ export default function PreferencesGrid() {
       if (newSelection.has(id)) {
         newSelection.delete(id);
       } else {
+        if (newSelection.size >= 3) {
+          toast({
+            title: "Limite de seleção atingido",
+            description: "Você pode selecionar no máximo 3 itens.",
+            variant: "destructive",
+          });
+          return prev; 
+        }
         newSelection.add(id);
       }
       return newSelection;
@@ -31,10 +39,10 @@ export default function PreferencesGrid() {
   };
 
   const handleSubmit = async () => {
-    if (selectedMovieIds.size < 3) {
+    if (selectedMovieIds.size !== 3) {
       toast({
-        title: "Selecione mais filmes",
-        description: "Por favor, selecione pelo menos 3 filmes ou séries para obter recomendações personalizadas.",
+        title: "Seleção incompleta",
+        description: "Por favor, selecione exatamente 3 filmes ou séries para obter recomendações.",
         variant: "destructive",
       });
       return;
@@ -52,6 +60,7 @@ export default function PreferencesGrid() {
         const augmentedRecommendations: RecommendedMovie[] = result.recommendations.map((rec, index) => ({
           ...rec,
           id: crypto.randomUUID(),
+          posterUrl: movies.find(m => m.title.toLowerCase() === rec.title.toLowerCase())?.posterUrl || `https://picsum.photos/seed/${index + 100}/500/750`,
           aiHint: rec.genre.toLowerCase(),
         }));
         
