@@ -37,7 +37,7 @@ export const movies: Movie[] = [
   },
   {
     id: '4',
-    title: 'The Lost Pirate Kingdom',
+    title: 'O Reino Perdido dos Piratas',
     description: 'Nesta série documental, os verdadeiros piratas do Caribe saqueiam violentamente as riquezas do mundo e formam uma república surpreendentemente igualitária.',
     genre: 'Documentary',
     cast: ['Sam Callis', 'Tom Padley', 'Evan Milton'],
@@ -169,7 +169,7 @@ export const movies: Movie[] = [
   },
   {
     id: '16',
-    title: 'The Irrational',
+    title: 'O Irracional',
     description: 'Um professor de renome mundial de ciência comportamental empresta sua experiência a uma série de casos de alto risco envolvendo governos, aplicação da lei e corporações.',
     genre: 'Drama',
     cast: ['Jesse L. Martin', 'Maahra Hill', 'Travina Springer'],
@@ -191,7 +191,7 @@ export const movies: Movie[] = [
   },
   {
     id: '18',
-    title: 'Round Six (Squid Game)',
+    title: 'Round 6',
     description: 'Centenas de jogadores com problemas financeiros aceitam um estranho convite para competir em jogos infantis. Dentro, um prêmio tentador os aguarda com apostas mortais.',
     genre: 'Thriller',
     cast: ['Lee Jung-jae', 'Park Hae-soo', 'Wi Ha-joon'],
@@ -235,7 +235,7 @@ export const movies: Movie[] = [
   },
   {
     id: '22',
-    title: 'Os Donos do Jogo (Players)',
+    title: 'Jogadores',
     description: 'Uma equipe fictícia de e-sports de League of Legends, liderada por um jogador veterano e um novo prodígio, tenta vencer seu primeiro campeonato.',
     genre: 'Comedy',
     cast: ['Misha Brooks', 'Da\'Jour Jones', 'Ely Henry'],
@@ -257,7 +257,7 @@ export const movies: Movie[] = [
   },
   {
     id: '24',
-    title: 'Bandidagem (Gangs of Galicia)',
+    title: 'As Leis de Assunção',
     description: 'Quando o assassinato de seu pai revela uma vida dupla, uma advogada busca vingança se infiltrando em um cartel de drogas galego e se aproximando de seu líder.',
     genre: 'Crime',
     cast: ['Clara Lago', 'Tamar Novas', 'Xosé Antonio Touriñán'],
@@ -312,7 +312,7 @@ export const movies: Movie[] = [
   },
   {
     id: '29',
-    title: 'One Piece (Live Action)',
+    title: 'One Piece: A Série',
     description: 'Em um mundo de navegantes, um jovem capitão pirata parte com sua tripulação para obter o título de Rei dos Piratas e descobrir o tesouro mítico conhecido como \'One Piece\'.',
     genre: 'Action',
     cast: ['Iñaki Godoy', 'Mackenyu', 'Emily Rudd'],
@@ -323,7 +323,7 @@ export const movies: Movie[] = [
   },
   {
     id: '30',
-    title: 'Caramelo (Caramel)',
+    title: 'Caramelo',
     description: 'Em um salão de beleza em Beirute, as vidas de cinco mulheres se cruzam. Cada uma tem sua própria história, problemas e segredos.',
     genre: 'Drama',
     cast: ['Nadine Labaki', 'Yasmine Al Massri', 'Joanna Moukarzel'],
@@ -356,7 +356,7 @@ export const movies: Movie[] = [
   },
   {
     id: '33',
-    title: 'Wandinha (Wednesday)',
+    title: 'Wandinha',
     description: 'Enquanto estuda na Academia Nevermore, Wandinha Addams tenta dominar sua habilidade psíquica emergente, frustrar uma onda de assassinatos monstruosos e resolver o mistério sobrenatural que envolveu seus pais há 25 anos.',
     genre: 'Comedy',
     cast: ['Jenna Ortega', 'Gwendoline Christie', 'Riki Lindhome'],
@@ -367,7 +367,7 @@ export const movies: Movie[] = [
   },
   {
     id: '34',
-    title: 'Ponto Cego (Blindspot)',
+    title: 'Ponto Cego',
     description: 'Uma mulher sem memórias de seu passado é encontrada nua na Times Square com o corpo totalmente coberto por tatuagens complexas.',
     genre: 'Action',
     cast: ['Sullivan Stapleton', 'Jaimie Alexander', 'Rob Brown'],
@@ -389,7 +389,7 @@ export const movies: Movie[] = [
   },
   {
     id: '36',
-    title: 'Criando Dion (Raising Dion)',
+    title: 'Criando Dion',
     description: 'Uma mãe solteira viúva descobre que seu filho tem superpoderes e tenta descobrir como criá-lo com segurança e responsabilidade.',
     genre: 'Sci-Fi',
     cast: ['Alisha Wainwright', 'Ja\'Siah Young', 'Jason Ritter'],
@@ -422,7 +422,7 @@ export const movies: Movie[] = [
   },
   {
     id: '39',
-    title: 'Viagem 2: A Ilha Misteriosa (Journey 2: The Mysterious Island)',
+    title: 'Viagem 2: A Ilha Misteriosa',
     description: 'Sean Anderson se junta ao marido de sua mãe em uma missão para encontrar seu avô, que se acredita estar desaparecido em uma ilha mítica.',
     genre: 'Action',
     cast: ['Dwayne Johnson', 'Josh Hutcherson', 'Vanessa Hudgens'],
@@ -432,5 +432,3 @@ export const movies: Movie[] = [
     aiHint: 'adventure comedy',
   },
 ];
-
-    
