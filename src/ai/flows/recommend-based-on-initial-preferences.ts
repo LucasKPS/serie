@@ -9,6 +9,7 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
+import {googleAI} from '@genkit-ai/google-genai';
 
 const RecommendBasedOnInitialPreferencesInputSchema = z.object({
   initialSelections: z
@@ -67,7 +68,7 @@ const recommendBasedOnInitialPreferencesFlow = ai.defineFlow(
     outputSchema: RecommendBasedOnInitialPreferencesOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input, {model: 'gemini-1.5-flash-latest'});
+    const {output} = await prompt(input, {model: googleAI.model('gemini-1.5-flash')});
     return output!;
   }
 );
