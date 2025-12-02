@@ -1,7 +1,7 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
 
@@ -28,6 +28,7 @@ export default function PreferencesGrid() {
         newSelection.delete(id);
       } else {
         if (newSelection.size >= 3) {
+          // A chamada do toast agora está dentro de um manipulador de eventos, o que é seguro.
           toast({
             title: "Limite de seleção atingido",
             description: "Você pode selecionar no máximo 3 itens.",
@@ -101,7 +102,6 @@ export default function PreferencesGrid() {
             onSelect={handleSelectMovie}
             isSelected={selectedMovieIds.has(movie.id)}
             className="animate-fade-in-up"
-            style={{ animationDelay: `${index * 50}ms` }}
             index={index}
           />
         ))}
@@ -110,7 +110,7 @@ export default function PreferencesGrid() {
         <div className="container mx-auto flex justify-center">
             <Button
               onClick={handleSubmit}
-              disabled={isLoading}
+              disabled={isLoading || selectedMovieIds.size !== 3}
               size="lg"
               className="bg-accent text-accent-foreground hover:bg-accent/90"
             >
@@ -120,7 +120,7 @@ export default function PreferencesGrid() {
                   Analisando seu gosto...
                 </>
               ) : (
-                "Gerar Recomendações"
+                `Gerar Recomendações (${selectedMovieIds.size}/3)`
               )}
             </Button>
         </div>

@@ -1,3 +1,4 @@
+
 "use client";
 
 import Image from "next/image";
@@ -27,6 +28,9 @@ export function MovieCard({
     }
   };
 
+  const animationDelay = index !== undefined ? { animationDelay: `${index * 50}ms` } : {};
+
+
   return (
     <Card
       className={cn(
@@ -37,7 +41,7 @@ export function MovieCard({
         className
       )}
       onClick={handleClick}
-      style={index !== undefined ? { animationDelay: `${index * 50}ms` } : {}}
+      style={animationDelay}
     >
       <CardContent className="p-0">
         <div className="aspect-[2/3] w-full">
@@ -50,12 +54,6 @@ export function MovieCard({
             data-ai-hint={movie.aiHint}
           />
         </div>
-
-        {onSelect && typeof index === 'number' && (
-           <div className="pointer-events-none absolute bottom-1 right-2 text-2xl font-bold text-white [text-shadow:0_2px_4px_rgba(0,0,0,0.8)]">
-            {index + 1}
-          </div>
-        )}
 
         {isSelected && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/60 transition-opacity duration-300">
