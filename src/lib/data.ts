@@ -239,7 +239,7 @@ export const movies: Movie[] = [
     description: 'A fictional League of Legends esports team, led by a veteran player and a new prodigy, tries to win its first championship.',
     genre: 'Comedy',
     cast: ['Misha Brooks', 'Da\'Jour Jones', 'Ely Henry'],
-    posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-q3-f_H-o-Y-U-J-Z_u_R-h-s-j_f-A&s',
+    posterUrl: 'https://br.web.img3.acsta.net/img/9a/ed/9aed09610f84de0e13589af031f11089.jpg',
     rating: 8.3,
     year: 2022,
     aiHint: 'esports comedy',
@@ -432,5 +432,3 @@ export const movies: Movie[] = [
     aiHint: 'adventure comedy',
   },
 ];
-
-    
