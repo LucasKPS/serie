@@ -65,14 +65,14 @@ function MyWatchlist() {
 
   const watchlistQuery = useMemoFirebase(() => {
     if (!user) return null;
+    // Removido o orderBy('createdAt', 'desc') para evitar a necessidade de um índice composto.
     return query(
       collection(firestore, 'users', user.uid, 'userPreferences'),
-      where('preferenceType', '==', 'watchlist'),
-      orderBy('createdAt', 'desc')
+      where('preferenceType', '==', 'watchlist')
     );
   }, [firestore, user]);
 
-  const { data: watchlistItems, isLoading } = useCollection<UserPreference>(watchlistQuery);
+  const { data: watchlistItems, isLoading, error } = useCollection<UserPreference>(watchlistQuery);
   
     if (isLoading) {
       return (
@@ -80,6 +80,15 @@ function MyWatchlist() {
               {[...Array(6)].map((_, i) => <Skeleton key={i} className="aspect-[2/3] w-full rounded-lg" />)}
           </div>
       )
+    }
+
+    if (error) {
+        return (
+             <div className='text-center py-8'>
+                <p className="text-destructive">Não foi possível carregar sua lista.</p>
+                <p className="text-muted-foreground text-sm">Por favor, tente recarregar a página.</p>
+            </div>
+        )
     }
   
     if (!watchlistItems || watchlistItems.length === 0) {
