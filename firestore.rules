@@ -1,3 +1,4 @@
+
 /**
  * @file Firebase Security Rules for CineScope
  *
@@ -97,8 +98,8 @@ service cloud.firestore {
     /**
      * @description Rules for the /users/{userId}/userPreferences/{userPreferenceId} collection.
      * @path /users/{userId}/userPreferences/{userPreferenceId}
+     * @allow (get, list) - An authenticated user can read and list preferences under their own user ID.
      * @allow (create) - An authenticated user can create a preference under their own user ID.
-     * @allow (get) - An authenticated user can read a preference under their own user ID.
      * @allow (update) - An authenticated user can update a preference under their own user ID.
      * @allow (delete) - An authenticated user can delete a preference under their own user ID.
      * @deny (create) - An unauthenticated user cannot create a user preference.
@@ -115,8 +116,9 @@ service cloud.firestore {
     /**
      * @description Rules for the /users/{userId}/recommendations/{recommendationId} collection.
      * @path /users/{userId}/recommendations/{recommendationId}
-     * @allow (create) - An authenticated user can create a recommendation under their own user ID.
      * @allow (get) - An authenticated user can read a recommendation under their own user ID.
+     * @allow (list) - An authenticated user can list recommendations under their own user ID.
+     * @allow (create) - An authenticated user can create a recommendation under their own user ID.
      * @allow (update) - An authenticated user can update a recommendation under their own user ID.
      * @allow (delete) - An authenticated user can delete a recommendation under their own user ID.
      * @deny (create) - An unauthenticated user cannot create a recommendation.
@@ -149,3 +151,4 @@ service cloud.firestore {
     }
   }
 }
+    
