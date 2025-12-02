@@ -5,7 +5,6 @@ import { useEffect, useState, use } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import type { RecommendedMovie } from "@/lib/types";
-import AiSummary from "@/components/movies/ai-summary";
 import { Skeleton } from "@/components/ui/skeleton";
 import { notFound } from "next/navigation";
 
@@ -13,7 +12,6 @@ import { notFound } from "next/navigation";
 function MovieDetails({ slug }: { slug: string }) {
   const [movie, setMovie] = useState<RecommendedMovie | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const [isGeneratingSummary, setIsGeneratingSummary] = useState(false);
 
   useEffect(() => {
     try {
@@ -69,20 +67,6 @@ function MovieDetails({ slug }: { slug: string }) {
             <p>{movie.description}</p>
           </div>
           
-          <div className="bg-card p-4 rounded-lg border mb-6">
-            <h2 className="text-xl font-semibold mb-2 font-headline">Resumo da IA</h2>
-            <AiSummary 
-              movie={{
-                  title: movie.title,
-                  description: movie.description,
-                  genre: movie.genre,
-                  cast: "N/A"
-              }}
-              isGenerating={isGeneratingSummary}
-              setIsGenerating={setIsGeneratingSummary}
-            />
-          </div>
-
           <div className="mt-8">
             <h2 className="text-xl font-semibold mb-2 font-headline">Por que recomendamos</h2>
             <p className="text-muted-foreground">{movie.similarityReason}</p>

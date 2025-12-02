@@ -8,12 +8,10 @@ import type { RecommendedMovie } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
-import AiSummary from "@/components/movies/ai-summary";
 
 export default function HomePage() {
   const [recommendations, setRecommendations] = useState<RecommendedMovie[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isGeneratingSummary, setIsGeneratingSummary] = useState(false);
 
   useEffect(() => {
     try {
@@ -83,20 +81,6 @@ export default function HomePage() {
                 <p>{movie.description}</p>
             </div>
             
-            <div className="bg-card p-4 rounded-lg border mb-6">
-                <h3 className="text-xl font-semibold mb-2 font-headline">Resumo da IA</h3>
-                <AiSummary 
-                    movie={{
-                        title: movie.title,
-                        description: movie.description,
-                        genre: movie.genre,
-                        cast: "N/A"
-                    }}
-                    isGenerating={isGeneratingSummary}
-                    setIsGenerating={setIsGeneratingSummary}
-                />
-            </div>
-
             <div className="mt-8">
                 <h3 className="text-xl font-semibold mb-2 font-headline">Por que recomendamos</h3>
                 <p className="text-muted-foreground">{movie.similarityReason}</p>
