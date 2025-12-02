@@ -4,10 +4,88 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import type { RecommendedMovie } from "@/lib/types";
+import type { RecommendedMovie, UserPreference } from "@/lib/types";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Badge } from "@/components/ui/badge";
+import { Bookmark } from "lucide-react";
+import { useFirebase } from "@/firebase";
+import { collection, deleteDoc, doc, getDocs, query, setDoc, where } from "firebase/firestore";
+import { useToast } from "@/hooks/use-toast";
+
+function WatchlistButton({ movie }: { movie: RecommendedMovie }) {
+    const { firestore, user } = useFirebase();
+    const { toast } = useToast();
+    const [isInWatchlist, setIsInWatchlist] = useState(false);
+    const [watchlistDocId, setWatchlistDocId] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        async function checkWatchlist() {
+            if (!user || !firestore) {
+                setIsLoading(false);
+                return;
+            };
+
+            setIsLoading(true);
+            const q = query(
+                collection(firestore, 'users', user.uid, 'userPreferences'),
+                where('movieId', '==', movie.id),
+                where('preferenceType', '==', 'watchlist')
+            );
+            const querySnapshot = await getDocs(q);
+            if (!querySnapshot.empty) {
+                setIsInWatchlist(true);
+                setWatchlistDocId(querySnapshot.docs[0].id);
+            } else {
+                setIsInWatchlist(false);
+                setWatchlistDocId(null);
+            }
+            setIsLoading(false);
+        }
+        checkWatchlist();
+    }, [user, firestore, movie.id]);
+
+    const handleWatchlistToggle = async () => {
+        if (!user || !firestore) return;
+
+        if (isInWatchlist && watchlistDocId) {
+            const docRef = doc(firestore, 'users', user.uid, 'userPreferences', watchlistDocId);
+            await deleteDoc(docRef);
+            setIsInWatchlist(false);
+            setWatchlistDocId(null);
+            toast({ title: 'Removido da sua lista!' });
+        } else {
+            const newDocRef = doc(collection(firestore, 'users', user.uid, 'userPreferences'));
+            const preference: UserPreference = {
+                id: newDocRef.id,
+                userId: user.uid,
+                movieId: movie.id,
+                seriesId: null,
+                preferenceType: 'watchlist',
+                createdAt: new Date().toISOString(),
+                title: movie.title,
+                posterUrl: movie.posterUrl,
+                genre: movie.genre
+            };
+            await setDoc(newDocRef, preference);
+            setIsInWatchlist(true);
+            setWatchlistDocId(newDocRef.id);
+            toast({ title: 'Adicionado à sua lista!' });
+        }
+    };
+
+    if (isLoading) {
+        return <Skeleton className="h-10 w-48" />;
+    }
+
+    return (
+        <Button onClick={handleWatchlistToggle} variant="outline">
+            <Bookmark className={`mr-2 h-4 w-4 ${isInWatchlist ? 'fill-current' : ''}`} />
+            {isInWatchlist ? 'Remover da Lista' : 'Adicionar à Lista'}
+        </Button>
+    );
+}
 
 export default function HomePage() {
   const [recommendations, setRecommendations] = useState<RecommendedMovie[]>([]);
@@ -81,6 +159,8 @@ export default function HomePage() {
                 <p>{movie.description}</p>
             </div>
             
+            <WatchlistButton movie={movie} />
+
             <div className="mt-8">
                 <h3 className="text-xl font-semibold mb-2 font-headline">Por que recomendamos</h3>
                 <p className="text-muted-foreground">{movie.similarityReason}</p>
@@ -104,10 +184,7 @@ function LoadingSkeleton() {
                 <Skeleton className="h-6 w-24 rounded-full" />
                 <Skeleton className="h-12 w-3/4 rounded-md" />
                 <Skeleton className="h-20 w-full rounded-md" />
-                <div className="bg-card p-4 rounded-lg border">
-                    <Skeleton className="h-8 w-1/3 mb-4" />
-                    <Skeleton className="h-16 w-full" />
-                </div>
+                 <Skeleton className="h-10 w-48" />
                  <div className="mt-8">
                     <Skeleton className="h-8 w-1/3 mb-4" />
                     <Skeleton className="h-10 w-full" />
