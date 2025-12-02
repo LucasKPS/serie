@@ -1,7 +1,11 @@
-// Resume os detalhes de um determinado filme ou série para gerar uma visão geral concisa.
-
 'use server';
-
+/**
+ * @fileOverview Resume os detalhes de um determinado filme ou série para gerar uma visão geral concisa.
+ *
+ * - summarizeMovieDetails - Uma função que lida com o processo de resumo do filme/série.
+ * - SummarizeMovieDetailsInput - O tipo de entrada para a função summarizeMovieDetails.
+ * - SummarizeMovieDetailsOutput - O tipo de retorno para a função summarizeMovieDetails.
+ */
 import {ai} from '@/ai/genkit';
 import { gemini15Flash } from '@genkit-ai/googleai';
 import {z} from 'genkit';
@@ -25,7 +29,7 @@ export async function summarizeMovieDetails(input: SummarizeMovieDetailsInput): 
 
 const prompt = ai.definePrompt({
   name: 'summarizeMovieDetailsPrompt',
-  model: 'gemini-1.5-flash',
+  model: gemini15Flash,
   input: {schema: SummarizeMovieDetailsInputSchema},
   output: {schema: SummarizeMovieDetailsOutputSchema},
   prompt: `Você é um especialista em sumarização de filmes e séries por IA.
