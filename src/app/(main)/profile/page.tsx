@@ -1,11 +1,64 @@
+
 'use client';
+
+import { useMemo } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { collection, query, orderBy } from 'firebase/firestore';
+import { useFirebase, useCollection, useMemoFirebase } from '@/firebase';
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useUser } from "@/firebase/auth/use-user";
 import { Film, History } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
+import type { UserRecommendation } from '@/lib/types';
+import { Badge } from '@/components/ui/badge';
+import { MovieCard } from '@/components/movies/movie-card';
+
+function RecommendationHistory() {
+  const { firestore, user } = useFirebase();
+
+  const recommendationsQuery = useMemoFirebase(() => {
+    if (!user) return null;
+    return query(
+      collection(firestore, 'users', user.uid, 'recommendations'),
+      orderBy('recommendationDate', 'desc')
+    );
+  }, [firestore, user]);
+
+  const { data: recommendations, isLoading } = useCollection<UserRecommendation>(recommendationsQuery);
+
+  if (isLoading) {
+    return (
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            {[...Array(6)].map((_, i) => <Skeleton key={i} className="aspect-[2/3] w-full rounded-lg" />)}
+        </div>
+    )
+  }
+
+  if (!recommendations || recommendations.length === 0) {
+    return (
+        <div className='text-center py-8'>
+            <p className="text-muted-foreground">Você ainda não tem um histórico de recomendações.</p>
+            <Button asChild variant="link" className="mt-2">
+                <Link href="/preferences">Gerar novas recomendações</Link>
+            </Button>
+        </div>
+    )
+  }
+
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
+        {recommendations.map(rec => (
+            <Link key={rec.id} href={`/movie/${rec.movieId}`}>
+                <MovieCard movie={{...rec, posterUrl: rec.posterUrl || ''}} />
+            </Link>
+        ))}
+    </div>
+  )
+}
 
 export default function ProfilePage() {
   const { user, isUserLoading } = useUser();
@@ -19,6 +72,12 @@ export default function ProfilePage() {
                     <Skeleton className="h-10 w-64" />
                     <Skeleton className="h-6 w-48" />
                     <Skeleton className="h-10 w-32 mt-4" />
+                </div>
+            </div>
+            <div className="space-y-4">
+                <Skeleton className="h-10 w-48 mb-4" />
+                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    {[...Array(6)].map((_, i) => <Skeleton key={i} className="aspect-[2/3] w-full rounded-lg" />)}
                 </div>
             </div>
         </div>
@@ -46,13 +105,14 @@ export default function ProfilePage() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <History className="w-6 h-6" />
-              Histórico
+              Histórico de Recomendações
             </CardTitle>
+            <CardDescription>
+                Aqui estão os filmes e séries que meu sistema recomendou para você anteriormente.
+            </CardDescription>
           </CardHeader>
           <CardContent>
-            <p className="text-muted-foreground">
-              Seu histórico de visualização ainda não está disponível. Esta funcionalidade chegará em breve!
-            </p>
+            <RecommendationHistory />
           </CardContent>
         </Card>
 
@@ -73,5 +133,3 @@ export default function ProfilePage() {
     </div>
   );
 }
-
-    

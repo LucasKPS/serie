@@ -1,16 +1,18 @@
 
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
+import { collection, doc, writeBatch } from "firebase/firestore";
 
 import { recommendBasedOnInitialPreferences } from "@/ai/flows/recommend-based-on-initial-preferences";
 import { movies } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import type { RecommendedMovie } from "@/lib/types";
+import type { Movie, RecommendedMovie } from "@/lib/types";
 import { MovieCard } from "./movie-card";
+import { useFirebase } from "@/firebase";
 
 // Função para simular um atraso
 const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
@@ -20,6 +22,7 @@ export default function PreferencesGrid() {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
+  const { firestore, user } = useFirebase();
 
   const handleSelectMovie = (id: string) => {
     setSelectedMovieIds((prev) => {
@@ -28,7 +31,6 @@ export default function PreferencesGrid() {
         newSelection.delete(id);
       } else {
         if (newSelection.size >= 3) {
-          // A chamada do toast agora está dentro de um manipulador de eventos, o que é seguro.
           toast({
             title: "Limite de seleção atingido",
             description: "Você pode selecionar no máximo 3 itens.",
@@ -41,6 +43,38 @@ export default function PreferencesGrid() {
       return newSelection;
     });
   };
+
+  const saveRecommendationsToFirestore = async (recommendations: RecommendedMovie[]) => {
+    if (!user || !firestore) return;
+
+    const batch = writeBatch(firestore);
+    const recommendationsRef = collection(firestore, 'users', user.uid, 'recommendations');
+
+    recommendations.forEach(rec => {
+      const movieMatch = movies.find(m => m.title.toLowerCase() === rec.title.toLowerCase());
+      const newRecRef = doc(recommendationsRef); 
+      
+      batch.set(newRecRef, {
+        id: newRecRef.id,
+        userId: user.uid,
+        movieId: movieMatch?.id || null,
+        seriesId: null, // Assumindo que são todos filmes por agora
+        reason: rec.similarityReason,
+        recommendationDate: new Date().toISOString(),
+        title: rec.title,
+        posterUrl: rec.posterUrl,
+        genre: rec.genre
+      });
+    });
+
+    try {
+      await batch.commit();
+    } catch (error) {
+      console.error("Erro ao salvar recomendações no Firestore:", error);
+      // Opcional: Adicionar um toast de erro aqui se a falha for crítica
+    }
+  };
+
 
   const handleSubmit = async () => {
     if (selectedMovieIds.size !== 3) {
@@ -64,14 +98,19 @@ export default function PreferencesGrid() {
       const result = await recommendBasedOnInitialPreferences({ initialSelections });
 
       if (result && result.recommendations) {
-        const augmentedRecommendations: RecommendedMovie[] = result.recommendations.map((rec, index) => ({
-          ...rec,
-          id: crypto.randomUUID(),
-          posterUrl: movies.find(m => m.title.toLowerCase() === rec.title.toLowerCase())?.posterUrl || `https://picsum.photos/seed/${index + 100}/500/750`,
-          aiHint: rec.genre.toLowerCase(),
-        }));
+        const augmentedRecommendations: RecommendedMovie[] = result.recommendations.map((rec, index) => {
+          const movieMatch = movies.find(m => m.title.toLowerCase() === rec.title.toLowerCase());
+          return {
+            ...rec,
+            id: movieMatch?.id || crypto.randomUUID(),
+            posterUrl: movieMatch?.posterUrl || `https://picsum.photos/seed/${index + 100}/500/750`,
+            aiHint: rec.genre.toLowerCase(),
+          }
+        });
         
         localStorage.setItem("recommendations", JSON.stringify(augmentedRecommendations));
+
+        await saveRecommendationsToFirestore(augmentedRecommendations);
         
         toast({
           title: "Análise Concluída!",
@@ -98,7 +137,7 @@ export default function PreferencesGrid() {
         {movies.map((movie, index) => (
           <MovieCard
             key={movie.id}
-            movie={movie}
+            movie={movie as Movie}
             onSelect={handleSelectMovie}
             isSelected={selectedMovieIds.has(movie.id)}
             className="animate-fade-in-up"

@@ -1,3 +1,4 @@
+
 export interface Movie {
   id: string;
   title: string;
@@ -18,4 +19,16 @@ export interface RecommendedMovie {
   similarityReason: string;
   posterUrl: string;
   aiHint: string;
+}
+
+export interface UserRecommendation {
+    id: string;
+    userId: string;
+    movieId: string | null;
+    seriesId: string | null;
+    reason: string;
+    recommendationDate: string;
+    title: string;
+    posterUrl: string;
+    genre: string;
 }
