@@ -49,7 +49,7 @@ const summarizeMovieDetailsFlow = ai.defineFlow(
     outputSchema: SummarizeMovieDetailsOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input, {model: 'gemini-pro'});
+    const {output} = await prompt(input, {model: 'googleai/gemini-pro'});
     return output!;
   }
 );

@@ -67,7 +67,7 @@ const recommendBasedOnInitialPreferencesFlow = ai.defineFlow(
     outputSchema: RecommendBasedOnInitialPreferencesOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input, {model: 'gemini-pro'});
+    const {output} = await prompt(input, {model: 'googleai/gemini-pro'});
     return output!;
   }
 );
