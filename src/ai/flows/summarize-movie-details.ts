@@ -29,7 +29,7 @@ export async function summarizeMovieDetails(input: SummarizeMovieDetailsInput): 
 
 const prompt = ai.definePrompt({
   name: 'summarizeMovieDetailsPrompt',
-  model: googleAI.model('gemini-1.5-flash-latest'),
+  model: googleAI.model('gemini-pro'),
   input: {schema: SummarizeMovieDetailsInputSchema},
   output: {schema: SummarizeMovieDetailsOutputSchema},
   prompt: `Você é um especialista em sumarização de filmes e séries por IA para o projeto CineScope.
