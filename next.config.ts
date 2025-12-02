@@ -24,13 +24,9 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'www.europanet.com.br' },
       { protocol: 'https', hostname: 'picsum.photos' },
       { protocol: 'https', hostname: 'placehold.co' },
-      { protocol: 'https', hostname: 'www.themoviedb.org' },
-      { protocol: 'https', hostname: 'i.ebayimg.com' },
-      { protocol: 'https', hostname: 'bds.tv.br' },
-      { protocol: 'https', hostname: 'static.wikia.nocookie.net' },
-      { protocol: 'https', hostname: 'idris.com.br' },
-      { protocol: 'https', hostname: 'images.ctfassets.net' },
-      { protocol: 'https', hostname: 'lumiere-a.akamaihd.net' },
+      { protocol: 'https' , hostname: 'theblazerrhs.com' },
+      { protocol: 'https', hostname: 'www.crew-united.com' },
+      { protocol: 'https', hostname: 'marquettemessenger.com' },
     ],
   },
   async redirects() {
@@ -41,3 +37,5 @@ const nextConfig: NextConfig = {
 };
 
 module.exports = nextConfig;
+
+    
