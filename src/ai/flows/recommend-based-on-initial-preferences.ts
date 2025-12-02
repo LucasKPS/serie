@@ -52,10 +52,10 @@ export async function recommendBasedOnInitialPreferences(
 
 const prompt = ai.definePrompt({
   name: 'recommendBasedOnInitialPreferencesPrompt',
-  model: googleAI.model('gemini-pro'),
+  model: googleAI.model('gemini-1.5-flash-latest'),
   input: {schema: RecommendBasedOnInitialPreferencesInputSchema},
   output: {schema: RecommendBasedOnInitialPreferencesOutputSchema},
-  prompt: `Você é um especialista em recomendação de filmes e séries. Com base nas seleções iniciais do usuário, você recomendará outros filmes e séries que ele possa gostar. Forneça um motivo pelo qual o conteúdo é semelhante às seleções iniciais. As recomendações, incluindo a razão da similaridade, devem ser em português do Brasil.
+  prompt: `Você é um motor de recomendação de IA especializado para o projeto CineScope, treinado em um conjunto de dados com curadoria de metadados de filmes e séries. Com base nas seleções iniciais do usuário, você recomendará outros filmes e séries que ele possa gostar. Forneça um motivo pelo qual o conteúdo é semelhante às seleções iniciais. As recomendações, incluindo a razão da similaridade, devem ser em português do Brasil.
 
 Seleções iniciais do usuário:
 {{#each initialSelections}}- {{{this}}}

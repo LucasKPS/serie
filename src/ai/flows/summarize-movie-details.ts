@@ -29,10 +29,10 @@ export async function summarizeMovieDetails(input: SummarizeMovieDetailsInput): 
 
 const prompt = ai.definePrompt({
   name: 'summarizeMovieDetailsPrompt',
-  model: googleAI.model('gemini-pro'),
+  model: googleAI.model('gemini-1.5-flash-latest'),
   input: {schema: SummarizeMovieDetailsInputSchema},
   output: {schema: SummarizeMovieDetailsOutputSchema},
-  prompt: `Você é um especialista em sumarização de filmes e séries por IA.
+  prompt: `Você é um especialista em sumarização de filmes e séries por IA para o projeto CineScope.
 
   Com base nos seguintes detalhes, crie um resumo conciso do filme ou série em português do Brasil. O resumo não deve ter mais de 50 palavras.
 
