@@ -27,6 +27,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https' , hostname: 'theblazerrhs.com' },
       { protocol: 'https', hostname: 'www.crew-united.com' },
       { protocol: 'https', hostname: 'marquettemessenger.com' },
+      { protocol: 'https', hostname: 'images.ctfassets.net' },
     ],
   },
   async redirects() {
