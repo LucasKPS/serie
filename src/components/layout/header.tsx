@@ -66,16 +66,16 @@ export default function Header() {
           </Link>
           <nav className="flex items-center space-x-6 text-sm font-medium">
             <Link
-              href="/preferences"
+              href="/home"
               className="transition-colors hover:text-foreground/80 text-foreground"
             >
-              Início
+              Recomendações
             </Link>
             <Link
-              href="/home"
+              href="/preferences"
               className="transition-colors hover:text-foreground/80 text-foreground/60"
             >
-              Recomendações
+              Gerar Novas Recomendações
             </Link>
           </nav>
         </div>
@@ -100,11 +100,18 @@ export default function Header() {
                 </Link>
                 <nav className="flex flex-col space-y-4">
                   <Link
-                    href="/preferences"
+                    href="/home"
                     className="flex items-center space-x-2 p-2 rounded-md hover:bg-accent"
                   >
                     <Home className="h-5 w-5" />
-                    <span>Início</span>
+                    <span>Recomendações</span>
+                  </Link>
+                   <Link
+                    href="/preferences"
+                    className="flex items-center space-x-2 p-2 rounded-md hover:bg-accent"
+                  >
+                    <Search className="h-5 w-5" />
+                    <span>Gerar Novas</span>
                   </Link>
                   <Link
                     href="/profile"
