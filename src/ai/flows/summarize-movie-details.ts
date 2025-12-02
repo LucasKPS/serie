@@ -7,7 +7,6 @@
  * - SummarizeMovieDetailsOutput - O tipo de retorno para a função summarizeMovieDetails.
  */
 import {ai} from '@/ai/genkit';
-import { gemini15Flash } from '@genkit-ai/googleai';
 import {z} from 'genkit';
 
 const SummarizeMovieDetailsInputSchema = z.object({
@@ -29,7 +28,7 @@ export async function summarizeMovieDetails(input: SummarizeMovieDetailsInput): 
 
 const prompt = ai.definePrompt({
   name: 'summarizeMovieDetailsPrompt',
-  model: gemini15Flash,
+  model: 'gemini-pro',
   input: {schema: SummarizeMovieDetailsInputSchema},
   output: {schema: SummarizeMovieDetailsOutputSchema},
   prompt: `Você é um especialista em sumarização de filmes e séries por IA.

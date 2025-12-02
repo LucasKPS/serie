@@ -8,7 +8,6 @@
  */
 
 import {ai} from '@/ai/genkit';
-import { gemini15Flash } from '@genkit-ai/googleai';
 import {z} from 'genkit';
 
 const RecommendBasedOnInitialPreferencesInputSchema = z.object({
@@ -52,7 +51,7 @@ export async function recommendBasedOnInitialPreferences(
 
 const prompt = ai.definePrompt({
   name: 'recommendBasedOnInitialPreferencesPrompt',
-  model: gemini15Flash,
+  model: 'gemini-pro',
   input: {schema: RecommendBasedOnInitialPreferencesInputSchema},
   output: {schema: RecommendBasedOnInitialPreferencesOutputSchema},
   prompt: `Você é um especialista em recomendação de filmes e séries. Com base nas seleções iniciais do usuário, você recomendará outros filmes e séries que ele possa gostar. Forneça um motivo pelo qual o conteúdo é semelhante às seleções iniciais. As recomendações, incluindo a razão da similaridade, devem ser em português do Brasil.
