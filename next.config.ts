@@ -29,6 +29,7 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'marquettemessenger.com' },
       { protocol: 'https', hostname: 'images.ctfassets.net' },
       { protocol: 'https', hostname: 'idris.com.br' },
+      { protocol: 'https', hostname: 'www.imdb.com' },
     ],
   },
   async redirects() {
