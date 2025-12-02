@@ -58,6 +58,9 @@ const prompt = ai.definePrompt({
 Seleções iniciais do usuário:
 {{#each initialSelections}}- {{{this}}}
 {{/each}}`,
+  config: {
+    model: 'gemini-1.5-flash-latest',
+  },
 });
 
 const recommendBasedOnInitialPreferencesFlow = ai.defineFlow(
