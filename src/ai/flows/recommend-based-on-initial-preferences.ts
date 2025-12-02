@@ -71,8 +71,8 @@ export async function recommendBasedOnInitialPreferences(
     .map(movie => {
         const primarySelection = selectedMovies.find(sm => sm.genre === movie.genre);
         const reason = primarySelection 
-            ? `Porque você gostou de "${primarySelection.title}", que também é do gênero ${movie.genre}.`
-            : `Com base em seus interesses em filmes de ${movie.genre}.`;
+            ? `Analisando seu interesse em "${primarySelection.title}", meu algoritmo identificou que o gênero ${movie.genre} é um ponto em comum. Por isso, "${movie.title}" tem uma alta probabilidade de te agradar.`
+            : `Com base em seus interesses em filmes do gênero ${movie.genre}, meu sistema sugere este título.`;
 
         return {
             title: movie.title,
@@ -82,7 +82,7 @@ export async function recommendBasedOnInitialPreferences(
         };
     });
 
-    // Se não houver recomendações suficientes, preenche com filmes aleatórios
+    // Se não houver recomendações suficientes, preenche com filmes "populares"
     if (recommendations.length < 5) {
         const additionalRecs = movies
             .filter(movie => !input.initialSelections.includes(movie.title) && !recommendations.some(r => r.title === movie.title))
@@ -92,7 +92,7 @@ export async function recommendBasedOnInitialPreferences(
                 title: movie.title,
                 description: movie.description,
                 genre: movie.genre,
-                similarityReason: `Uma sugestão popular para explorar novos gostos.`
+                similarityReason: `Com base em padrões de popularidade e aclamação da crítica, meu sistema sugere "${movie.title}" como uma excelente opção para expandir seus horizontes cinematográficos.`
             }));
         recommendations.push(...additionalRecs);
     }

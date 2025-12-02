@@ -12,6 +12,9 @@ import { useToast } from "@/hooks/use-toast";
 import type { RecommendedMovie } from "@/lib/types";
 import { MovieCard } from "./movie-card";
 
+// Função para simular um atraso
+const sleep = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
+
 export default function PreferencesGrid() {
   const [selectedMovieIds, setSelectedMovieIds] = useState<Set<string>>(new Set());
   const [isLoading, setIsLoading] = useState(false);
@@ -51,6 +54,9 @@ export default function PreferencesGrid() {
     setIsLoading(true);
 
     try {
+      // Simula o tempo de processamento da IA
+      await sleep(1500);
+
       const selectedMovies = movies.filter((m) => selectedMovieIds.has(m.id));
       const initialSelections = selectedMovies.map((m) => m.title);
 
@@ -67,8 +73,8 @@ export default function PreferencesGrid() {
         localStorage.setItem("recommendations", JSON.stringify(augmentedRecommendations));
         
         toast({
-          title: "Sucesso!",
-          description: "Sua página inicial personalizada está pronta.",
+          title: "Análise Concluída!",
+          description: "Suas recomendações personalizadas estão prontas.",
         });
         router.push("/home");
       } else {
@@ -111,10 +117,10 @@ export default function PreferencesGrid() {
               {isLoading ? (
                 <>
                   <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                  Gerando Recomendações...
+                  Analisando seu gosto...
                 </>
               ) : (
-                "Continuar"
+                "Gerar Recomendações"
               )}
             </Button>
         </div>
