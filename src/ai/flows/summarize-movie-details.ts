@@ -40,9 +40,6 @@ const prompt = ai.definePrompt({
   Elenco: {{{cast}}}
 
   Resumo:`,
-  config: {
-    model: 'gemini-1.5-flash-latest',
-  },
 });
 
 const summarizeMovieDetailsFlow = ai.defineFlow(
@@ -52,7 +49,7 @@ const summarizeMovieDetailsFlow = ai.defineFlow(
     outputSchema: SummarizeMovieDetailsOutputSchema,
   },
   async input => {
-    const {output} = await prompt(input);
+    const {output} = await prompt(input, { model: 'gemini-1.5-flash-latest' });
     return output!;
   }
 );
