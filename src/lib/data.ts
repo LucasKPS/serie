@@ -5,7 +5,7 @@ export const movies: Movie[] = [
   {
     id: '1',
     title: 'Dexter',
-    description: 'A Miami forensics expert moonlights as a serial killer of other serial killers.',
+    description: 'Um especialista forense de Miami que, nas horas vagas, caça e mata outros assassinos em série.',
     genre: 'Crime',
     cast: ['Michael C. Hall', 'Jennifer Carpenter', 'David Zayas'],
     posterUrl: 'https://m.media-amazon.com/images/I/81JKXT1j0OL._AC_UF894,1000_QL80_.jpg',
@@ -16,7 +16,7 @@ export const movies: Movie[] = [
   {
     id: '2',
     title: 'You',
-    description: 'A dangerously charming, intensely obsessive young man goes to extreme measures to insert himself into the lives of those he is transfixed by.',
+    description: 'Um jovem perigosamente charmoso e intensamente obsessivo que toma medidas extremas para se inserir na vida daqueles por quem é obcecado.',
     genre: 'Thriller',
     cast: ['Penn Badgley', 'Victoria Pedretti', 'Elizabeth Lail'],
     posterUrl: 'https://br.web.img2.acsta.net/c_310_420/pictures/18/12/31/02/49/2373131.jpg',
@@ -38,7 +38,7 @@ export const movies: Movie[] = [
   {
     id: '4',
     title: 'The Lost Pirate Kingdom',
-    description: 'The real-life pirates of the Caribbean violently plunder the world\'s riches and form a surprisingly egalitarian republic in this documentary series.',
+    description: 'Nesta série documental, os verdadeiros piratas do Caribe saqueiam violentamente as riquezas do mundo e formam uma república surpreendentemente igualitária.',
     genre: 'Documentary',
     cast: ['Sam Callis', 'Tom Padley', 'Evan Milton'],
     posterUrl: 'https://m.media-amazon.com/images/M/MV5BZGFjZDQ1ZGItYTEyOC00OGRiLWJiMDgtN2ExNTdjOTMwZjViXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',
@@ -49,7 +49,7 @@ export const movies: Movie[] = [
   {
     id: '5',
     title: 'Peaky Blinders',
-    description: 'A gangster family epic set in 1900s England, centering on a gang who sew razor blades in the peaks of their caps, and their fierce boss Tommy Shelby.',
+    description: 'Um épico de uma família de gângsteres ambientado na Inglaterra de 1900, centrado em uma gangue que costura lâminas de barbear nas abas de seus bonés e em seu chefe feroz, Tommy Shelby.',
     genre: 'Crime',
     cast: ['Cillian Murphy', 'Sam Neill', 'Helen McCrory'],
     posterUrl: 'https://www.crew-united.com/Media/Images/1582/1582796/1582796.entity.jpg',
@@ -60,7 +60,7 @@ export const movies: Movie[] = [
   {
     id: '6',
     title: 'Pulp Fiction',
-    description: 'The lives of two mob hitmen, a boxer, a gangster and his wife, and a pair of diner bandits intertwine in four tales of violence and redemption.',
+    description: 'As vidas de dois assassinos de aluguel, um boxeador, a esposa de um gângster e um casal de assaltantes de lanchonete se entrelaçam em quatro contos de violência e redenção.',
     genre: 'Crime',
     cast: ['John Travolta', 'Uma Thurman', 'Samuel L. Jackson'],
     posterUrl: 'https://upload.wikimedia.org/wikipedia/pt/8/82/Pulp_Fiction_cover.jpg',
@@ -71,7 +71,7 @@ export const movies: Movie[] = [
   {
     id: '7',
     title: 'The Midnight Gospel',
-    description: 'A spacecaster with a malfunctioning multiverse simulator travels through trippy worlds to interview beings living in them.',
+    description: 'Um podcaster espacial com um simulador de multiverso defeituoso viaja por mundos psicodélicos para entrevistar os seres que vivem neles.',
     genre: 'Animation',
     cast: ['Duncan Trussell', 'Phil Hendrie', 'Drew Pinsky'],
     posterUrl: 'https://upload.wikimedia.org/wikipedia/pt/thumb/f/f0/The_Midnight_Gospel.jpg/250px-The_Midnight_Gospel.jpg',
@@ -82,7 +82,7 @@ export const movies: Movie[] = [
   {
     id: '8',
     title: 'Dark',
-    description: 'A family saga with a supernatural twist, set in a German town, where the disappearance of two young children exposes the relationships among four families.',
+    description: 'Uma saga familiar com um toque sobrenatural, ambientada em uma cidade alemã, onde o desaparecimento de duas crianças expõe as relações entre quatro famílias.',
     genre: 'Sci-Fi',
     cast: ['Louis Hofmann', 'Karoline Eichhorn', 'Lisa Vicari'],
     posterUrl: 'https://upload.wikimedia.org/wikipedia/pt/f/f6/Dark_%28s%C3%A9rie%29.jpg',
@@ -93,7 +93,7 @@ export const movies: Movie[] = [
   {
     id: '9',
     title: 'Daybreak',
-    description: 'High school outcast Josh Wheeler searches for his missing girlfriend Sam Dean in post-apocalyptic Glendale, California.',
+    description: 'O estudante desajustado Josh Wheeler procura sua namorada desaparecida Sam Dean na pós-apocalíptica Glendale, Califórnia.',
     genre: 'Comedy',
     cast: ['Colin Ford', 'Alyvia Alyn Lind', 'Sophie Simnett'],
     posterUrl: 'https://upload.wikimedia.org/wikipedia/en/4/47/Poster_for_Netflix_series_Daybreak.png',
@@ -104,7 +104,7 @@ export const movies: Movie[] = [
   {
     id: '10',
     title: 'iCarly',
-    description: 'A girl named Carly hosts her own home-grown web show, iCarly, which becomes an online sensation.',
+    description: 'Uma garota chamada Carly apresenta seu próprio programa na web, iCarly, que se torna uma sensação online.',
     genre: 'Comedy',
     cast: ['Miranda Cosgrove', 'Jerry Trainor', 'Jennette McCurdy'],
     posterUrl: 'https://m.media-amazon.com/images/M/MV5BY2JlM2JiNmQtNTdhNy00MDljLThjNDQtZDExNWI0NTNhMjVlXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',
@@ -115,7 +115,7 @@ export const movies: Movie[] = [
   {
     id: '11',
     title: 'Ozark',
-    description: 'A financial advisor drags his family from Chicago to the Missouri Ozarks, where he must launder $500 million in five years to appease a drug boss.',
+    description: 'Um consultor financeiro arrasta sua família de Chicago para os Ozarks do Missouri, onde ele deve lavar 500 milhões de dólares em cinco anos para apaziguar um chefe do tráfico.',
     genre: 'Crime',
     cast: ['Jason Bateman', 'Laura Linney', 'Julia Garner'],
     posterUrl: 'https://resizing.flixster.com/WpM6gj21EIoYoyKLcbhkMp02KbY=/206x305/v2/https://resizing.flixster.com/3ko6zO6791p1QPOXHUI2eCwmHXQ=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvMDIyOTBmN2QtMzM0Yi00ODUxLWE0MWYtMmViYWJiOGViZjRkLmpwZw==',
@@ -126,7 +126,7 @@ export const movies: Movie[] = [
   {
     id: '12',
     title: 'Como Vender Drogas Online (Rápido)',
-    description: 'To win back his ex-girlfriend, a nerdy teen starts selling ecstasy online out of his bedroom and becomes one of Europe\'s biggest dealers.',
+    description: 'Para reconquistar sua ex-namorada, um adolescente nerd começa a vender ecstasy online de seu quarto e se torna um dos maiores traficantes da Europa.',
     genre: 'Comedy',
     cast: ['Maximilian Mundt', 'Danilo Kamperidis', 'Lena Klenke'],
     posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRaF-ubV-aP_3EjCWoIrCoLnRUhDlJsicdHuclKwrsy-IJMMztY',
@@ -137,7 +137,7 @@ export const movies: Movie[] = [
   {
     id: '13',
     title: 'Big Mouth',
-    description: 'Teenage friends find their lives upended by the wonders and horrors of puberty in this edgy, animated comedy from friends Nick Kroll and Andrew Goldberg.',
+    description: 'Amigos adolescentes descobrem que suas vidas foram viradas de cabeça para baixo pelas maravilhas e horrores da puberdade nesta comédia de animação ousada dos amigos Nick Kroll e Andrew Goldberg.',
     genre: 'Animation',
     cast: ['Nick Kroll', 'John Mulaney', 'Jessi Klein'],
     posterUrl: 'https://m.media-amazon.com/images/M/MV5BMTU0YjUyNDctYmM0OC00OWU5LWJmNTMtODY5Njc4MzVlMWE2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',
@@ -147,8 +147,8 @@ export const movies: Movie[] = [
   },
   {
     id: '14',
-    title: 'Disenchantment',
-    description: 'Princess Bean\'s misadventures in the crumbling medieval kingdom of Dreamland.',
+    title: '(Des)encanto',
+    description: 'As desventuras da princesa Bean no reino medieval em ruínas de Dreamland.',
     genre: 'Animation',
     cast: ['Abbi Jacobson', 'Eric André', 'Nat Faxon'],
     posterUrl: 'https://marquettemessenger.com/wp-content/uploads/2018/09/p15553420_b_v8_ac-600x900.jpg',
@@ -159,7 +159,7 @@ export const movies: Movie[] = [
   {
     id: '15',
     title: 'BoJack Horseman',
-    description: 'Meet the most beloved sitcom horse of the 90s - 20 years later. He’s a curmudgeon with a heart of...not quite gold...but something like gold. Copper?',
+    description: 'Conheça o cavalo de sitcom mais amado dos anos 90 - 20 anos depois. Ele é um rabugento com um coração de... não exatamente ouro... mas algo parecido com ouro. Cobre?',
     genre: 'Animation',
     cast: ['Will Arnett', 'Amy Sedaris', 'Alison Brie'],
     posterUrl: 'https://m.media-amazon.com/images/M/MV5BZmMwMDlkNTEtMmQzZS00ODQ0LWJlZmItOTgwYWMwZGM4MzFiXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg',
@@ -170,7 +170,7 @@ export const movies: Movie[] = [
   {
     id: '16',
     title: 'The Irrational',
-    description: 'A world-renowned professor of behavioral science lends his expertise to an array of high-stakes cases involving governments, law enforcement and corporations.',
+    description: 'Um professor de renome mundial de ciência comportamental empresta sua experiência a uma série de casos de alto risco envolvendo governos, aplicação da lei e corporações.',
     genre: 'Drama',
     cast: ['Jesse L. Martin', 'Maahra Hill', 'Travina Springer'],
     posterUrl: 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRjlgYXLE83x-Mg2cfmzZdSv9Ynyngr-v6EDz1Wswlb2UngUc--',
@@ -181,7 +181,7 @@ export const movies: Movie[] = [
   {
     id: '17',
     title: 'The Flash',
-    description: 'After being struck by lightning, Barry Allen wakes up from his coma to discover he\'s been given the power of super speed, becoming the Flash, fighting crime in Central City.',
+    description: 'Após ser atingido por um raio, Barry Allen acorda de seu coma para descobrir que recebeu o poder da supervelocidade, tornando-se o Flash e combatendo o crime em Central City.',
     genre: 'Action',
     cast: ['Grant Gustin', 'Candice Patton', 'Danielle Panabaker'],
     posterUrl: 'https://www.imdb.com/title/tt3107288/mediaviewer/rm2718842113/',
@@ -192,7 +192,7 @@ export const movies: Movie[] = [
   {
     id: '18',
     title: 'Round Six (Squid Game)',
-    description: 'Hundreds of cash-strapped players accept a strange invitation to compete in children\'s games. Inside, a tempting prize awaits with deadly high stakes.',
+    description: 'Centenas de jogadores com problemas financeiros aceitam um estranho convite para competir em jogos infantis. Dentro, um prêmio tentador os aguarda com apostas mortais.',
     genre: 'Thriller',
     cast: ['Lee Jung-jae', 'Park Hae-soo', 'Wi Ha-joon'],
     posterUrl: 'https://br.web.img3.acsta.net/img/88/2d/882d8fcd800fe37be85af13ee0c38556.jpg',
@@ -203,7 +203,7 @@ export const movies: Movie[] = [
   {
     id: '19',
     title: 'Breaking Bad',
-    description: 'A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family\'s future.',
+    description: 'Um professor de química do ensino médio diagnosticado com câncer de pulmão inoperável se volta para a fabricação e venda de metanfetamina para garantir o futuro de sua família.',
     genre: 'Crime',
     cast: ['Bryan Cranston', 'Aaron Paul', 'Anna Gunn'],
     posterUrl: 'https://m.media-amazon.com/images/M/MV5BMzU5ZGYzNmQtMTdhYy00OGRiLTg0NmQtYjVjNzliZTg1ZGE4XkEyXkFqcGc@._V1_QL75_UX190_CR0,2,190,281_.jpg',
@@ -214,7 +214,7 @@ export const movies: Movie[] = [
   {
     id: '20',
     title: 'Stranger Things',
-    description: 'When a young boy disappears, his mother, a police chief, and his friends must confront terrifying supernatural forces in order to get him back.',
+    description: 'Quando um garoto desaparece, sua mãe, um chefe de polícia e seus amigos devem enfrentar forças sobrenaturais aterrorizantes para recuperá-lo.',
     genre: 'Sci-Fi',
     cast: ['Millie Bobby Brown', 'Finn Wolfhard', 'Winona Ryder'],
     posterUrl: 'https://resizing.flixster.com/0xxuABVVuzJrUT130WFHKE-irEg=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vNzUyMTFhOTktZTU4Ni00ODkyLWJlYjQtZTgxYTllZmU2OGM0LmpwZw==',
@@ -225,7 +225,7 @@ export const movies: Movie[] = [
   {
     id: '21',
     title: 'The Witcher',
-    description: 'Geralt of Rivia, a solitary monster hunter, struggles to find his place in a world where people often prove more wicked than beasts.',
+    description: 'Geralt de Rívia, um caçador de monstros solitário, luta para encontrar seu lugar em um mundo onde as pessoas frequentemente se mostram mais perversas do que as feras.',
     genre: 'Fantasy',
     cast: ['Henry Cavill', 'Anya Chalotra', 'Freya Allan'],
     posterUrl: 'https://br.web.img3.acsta.net/pictures/19/11/29/17/57/5161763.jpg',
@@ -236,7 +236,7 @@ export const movies: Movie[] = [
   {
     id: '22',
     title: 'Os Donos do Jogo (Players)',
-    description: 'A fictional League of Legends esports team, led by a veteran player and a new prodigy, tries to win its first championship.',
+    description: 'Uma equipe fictícia de e-sports de League of Legends, liderada por um jogador veterano e um novo prodígio, tenta vencer seu primeiro campeonato.',
     genre: 'Comedy',
     cast: ['Misha Brooks', 'Da\'Jour Jones', 'Ely Henry'],
     posterUrl: 'https://br.web.img3.acsta.net/img/9a/ed/9aed09610f84de0e13589af031f11089.jpg',
@@ -247,7 +247,7 @@ export const movies: Movie[] = [
   {
     id: '23',
     title: 'Bridgerton',
-    description: 'Wealth, lust, and betrayal set in the backdrop of Regency era England, seen through the eyes of the powerful Bridgerton family.',
+    description: 'Riqueza, luxúria e traição ambientadas na era da Regência na Inglaterra, vistas pelos olhos da poderosa família Bridgerton.',
     genre: 'Romance',
     cast: ['Phoebe Dynevor', 'Regé-Jean Page', 'Nicola Coughlan'],
     posterUrl: 'https://resizing.flixster.com/138uPFHeLeB8oGxrkUdCSHQDAsE=/fit-in/705x460/v2/https://resizing.flixster.com/I_zHuKCiZSwuXD7jSZ3WHpnVngo=/ems.cHJkLWVtcy1hc3NldHMvdHZzZXJpZXMvZjU3NzI1NTktNDBhNC00YTc4LThkZGYtODAxMTgwZmM3ZDlmLmpwZw==',
@@ -258,7 +258,7 @@ export const movies: Movie[] = [
   {
     id: '24',
     title: 'Bandidagem (Gangs of Galicia)',
-    description: 'When her father\'s murder reveals a hidden double life, a lawyer seeks revenge by infiltrating a Galician drug cartel and becoming close to its leader.',
+    description: 'Quando o assassinato de seu pai revela uma vida dupla, uma advogada busca vingança se infiltrando em um cartel de drogas galego e se aproximando de seu líder.',
     genre: 'Crime',
     cast: ['Clara Lago', 'Tamar Novas', 'Xosé Antonio Touriñán'],
     posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWhRZawPRGIc6lo0jImRr1c722JcHYmHIEQKjThj4nqo33HZ6-',
@@ -269,7 +269,7 @@ export const movies: Movie[] = [
   {
     id: '25',
     title: 'The Umbrella Academy',
-    description: 'A family of former child heroes, now grown apart, must reunite to continue to protect the world.',
+    description: 'Uma família de ex-heróis infantis, agora separados, deve se reunir para continuar a proteger o mundo.',
     genre: 'Action',
     cast: ['Elliot Page', 'Tom Hopper', 'David Castañeda'],
     posterUrl: 'https://images.ctfassets.net/4cd45et68cgf/5ubPW3UKcPpDwThgu4X01O/7556b6756fcb6168b11caab885117e24/PT-BR_CARAMELO_Main-Key-Art_Dupla_Vertical_4x5_sRGB_PRE.jpg?w=2000',
@@ -280,7 +280,7 @@ export const movies: Movie[] = [
   {
     id: '26',
     title: 'Cobra Kai',
-    description: 'Decades after their 1984 All Valley Karate Tournament bout, a middle-aged Daniel LaRusso and Johnny Lawrence find themselves martial-arts rivals again.',
+    description: 'Décadas após a luta no Torneio de Karatê All Valley de 1984, um Daniel LaRusso e um Johnny Lawrence de meia-idade se encontram novamente como rivais de artes marciais.',
     genre: 'Action',
     cast: ['Ralph Macchio', 'William Zabka', 'Xolo Maridueña'],
     posterUrl: 'https://br.web.img2.acsta.net/pictures/21/01/04/12/12/0170975.jpg',
@@ -291,7 +291,7 @@ export const movies: Movie[] = [
   {
     id: '27',
     title: 'Sex Education',
-    description: 'A teenage boy with a sex therapist mother teams up with a high school classmate to set up an underground sex therapy clinic at school.',
+    description: 'Um adolescente com uma mãe terapeuta sexual se junta a uma colega de classe para montar uma clínica de terapia sexual clandestina na escola.',
     genre: 'Comedy',
     cast: ['Asa Butterfield', 'Gillian Anderson', 'Ncuti Gatwa'],
     posterUrl: 'https://idris.com.br/dev/wp-content/uploads/2019/01/poltrona-Sex-education-poster.jpg',
@@ -302,7 +302,7 @@ export const movies: Movie[] = [
   {
     id: '28',
     title: 'Henry Danger',
-    description: '13-year-old Henry Hart lands a part-time job as Kid Danger, the sidekick-in-training to superhero Captain Man.',
+    description: 'Henry Hart, de 13 anos, consegue um emprego de meio período como Kid Danger, o aprendiz de super-herói do Capitão Man.',
     genre: 'Comedy',
     cast: ['Jace Norman', 'Cooper Barnes', 'Riele Downs'],
     posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8V_5-Q5_r_o-e-gJ_p-iH-e-f_b-K_yA&s',
@@ -313,7 +313,7 @@ export const movies: Movie[] = [
   {
     id: '29',
     title: 'One Piece (Live Action)',
-    description: 'In a seafaring world, a young pirate captain sets out with his crew to attain the title of Pirate King and discover the mythical treasure known as \'One Piece.\'',
+    description: 'Em um mundo de navegantes, um jovem capitão pirata parte com sua tripulação para obter o título de Rei dos Piratas e descobrir o tesouro mítico conhecido como \'One Piece\'.',
     genre: 'Action',
     cast: ['Iñaki Godoy', 'Mackenyu', 'Emily Rudd'],
     posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Xv9Q3r-vY-Z_y_x-gJ_wI7F_q_K_kY_Q&s',
@@ -324,7 +324,7 @@ export const movies: Movie[] = [
   {
     id: '30',
     title: 'Caramelo (Caramel)',
-    description: 'In a Beirut beauty salon, five women\'s lives intersect. Each has her own story, problems, and secrets.',
+    description: 'Em um salão de beleza em Beirute, as vidas de cinco mulheres se cruzam. Cada uma tem sua própria história, problemas e segredos.',
     genre: 'Drama',
     cast: ['Nadine Labaki', 'Yasmine Al Massri', 'Joanna Moukarzel'],
     posterUrl: 'https://images.ctfassets.net/4cd45et68cgf/5ubPW3UKcPpDwThgu4X01O/7556b6756fcb6168b11caab885117e24/PT-BR_CARAMELO_Main-Key-Art_Dupla_Vertical_4x5_sRGB_PRE.jpg?w=2000',
@@ -335,7 +335,7 @@ export const movies: Movie[] = [
   {
     id: '31',
     title: 'Lupin',
-    description: 'Inspired by the adventures of Arsène Lupin, gentleman thief Assane Diop sets out to avenge his father for an injustice inflicted by a wealthy family.',
+    description: 'Inspirado nas aventuras de Arsène Lupin, o ladrão de casaca Assane Diop busca vingar seu pai por uma injustiça infligida por uma família rica.',
     genre: 'Crime',
     cast: ['Omar Sy', 'Ludivine Sagnier', 'Clotilde Hesme'],
     posterUrl: 'https://resizing.flixster.com/i6Tzks6-0MJnC7fD7nrQx4pr9Rc=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vMmJkNzExNTItMWM0MS00ODBjLWJkNGMtMTIwMmI4YTc3YTg3LmpwZw==',
@@ -346,7 +346,7 @@ export const movies: Movie[] = [
   {
     id: '32',
     title: 'Good Girls',
-    description: 'Three suburban mothers suddenly find themselves in desperate circumstances and decide to stop playing it safe and risk everything to take their power back.',
+    description: 'Três mães de subúrbio se encontram em circunstâncias desesperadoras e decidem parar de jogar pelo seguro e arriscar tudo para retomar seu poder.',
     genre: 'Comedy',
     cast: ['Christina Hendricks', 'Retta', 'Mae Whitman'],
     posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_p-Y-h_s_1PzG8-P4y8gH8z_Y4f8qL-Q&s',
@@ -357,7 +357,7 @@ export const movies: Movie[] = [
   {
     id: '33',
     title: 'Wandinha (Wednesday)',
-    description: 'While attending Nevermore Academy, Wednesday Addams attempts to master her emerging psychic ability, thwart a monstrous killing spree, and solve the supernatural mystery that embroiled her parents 25 years ago.',
+    description: 'Enquanto estuda na Academia Nevermore, Wandinha Addams tenta dominar sua habilidade psíquica emergente, frustrar uma onda de assassinatos monstruosos e resolver o mistério sobrenatural que envolveu seus pais há 25 anos.',
     genre: 'Comedy',
     cast: ['Jenna Ortega', 'Gwendoline Christie', 'Riki Lindhome'],
     posterUrl: 'https://image.tmdb.org/t/p/original/9PFonBhy4cQy7Jz20NpMygczOkv.jpg',
@@ -368,7 +368,7 @@ export const movies: Movie[] = [
   {
     id: '34',
     title: 'Ponto Cego (Blindspot)',
-    description: 'A woman with no memories of her past is found naked in Times Square with her body fully covered in intricate tattoos.',
+    description: 'Uma mulher sem memórias de seu passado é encontrada nua na Times Square com o corpo totalmente coberto por tatuagens complexas.',
     genre: 'Action',
     cast: ['Sullivan Stapleton', 'Jaimie Alexander', 'Rob Brown'],
     posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb9u-h_s_1PzG8-P4y8gH8z_Y4f8qL-Q&s',
@@ -379,7 +379,7 @@ export const movies: Movie[] = [
   {
     id: '35',
     title: 'The Thundermans',
-    description: 'A family of superheroes try to live a normal life, but their powers get in the way.',
+    description: 'Uma família de super-heróis tenta viver uma vida normal, mas seus poderes atrapalham.',
     genre: 'Comedy',
     cast: ['Kira Kosarin', 'Jack Griffo', 'Addison Riecke'],
     posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6-E32T9-8djx2iGvA93x0sTWM-S8-kG1nQ&s',
@@ -390,7 +390,7 @@ export const movies: Movie[] = [
   {
     id: '36',
     title: 'Criando Dion (Raising Dion)',
-    description: 'A widowed single mom discovers that her son has superpowers and tries to figure out how to raise him safely and responsibly.',
+    description: 'Uma mãe solteira viúva descobre que seu filho tem superpoderes e tenta descobrir como criá-lo com segurança e responsabilidade.',
     genre: 'Sci-Fi',
     cast: ['Alisha Wainwright', 'Ja\'Siah Young', 'Jason Ritter'],
     posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4gR3B-8Y-6J_iA8Hw_zD_yQ-J_Zz5yQ_uQ&s',
@@ -401,7 +401,7 @@ export const movies: Movie[] = [
   {
     id: '37',
     title: 'Lucifer',
-    description: 'Lucifer Morningstar has decided he\'s had enough of being the dutiful servant in Hell and decides to spend some time on Earth to better understand humanity.',
+    description: 'Lucifer Morningstar decidiu que já se cansou de ser o servo obediente no Inferno e decide passar um tempo na Terra para entender melhor a humanidade.',
     genre: 'Fantasy',
     cast: ['Tom Ellis', 'Lauren German', 'Kevin Alejandro'],
     posterUrl: 'https://image.tmdb.org/t/p/original/ekZobS8isE6mA53RAiGDG93hBxL.jpg',
@@ -412,7 +412,7 @@ export const movies: Movie[] = [
   {
     id: '38',
     title: 'Sintonia',
-    description: 'Three teens living in the same São Paulo shantytown pursue their dreams while maintaining their friendship in a world of music, drugs and religion.',
+    description: 'Três adolescentes que vivem na mesma favela de São Paulo perseguem seus sonhos enquanto mantêm a amizade em um mundo de música, drogas e religião.',
     genre: 'Drama',
     cast: ['Jottapê', 'Bruna Mascarenhas', 'Christian Malheiros'],
     posterUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1Xv9Q3r-vY-Z_y_x-gJ_wI7F_q_K_kY_Q&s',
@@ -423,7 +423,7 @@ export const movies: Movie[] = [
   {
     id: '39',
     title: 'Viagem 2: A Ilha Misteriosa (Journey 2: The Mysterious Island)',
-    description: 'Sean Anderson partners with his mom\'s husband on a mission to find his grandfather, who is thought to be missing on a mythical island.',
+    description: 'Sean Anderson se junta ao marido de sua mãe em uma missão para encontrar seu avô, que se acredita estar desaparecido em uma ilha mítica.',
     genre: 'Action',
     cast: ['Dwayne Johnson', 'Josh Hutcherson', 'Vanessa Hudgens'],
     posterUrl: 'https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSlpPU5wgtEAMIdbM3J6eQPdWuNRpnaZscjuCQiJeam_5EXB_yi',
@@ -432,3 +432,5 @@ export const movies: Movie[] = [
     aiHint: 'adventure comedy',
   },
 ];
+
+    
