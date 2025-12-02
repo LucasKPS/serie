@@ -25,7 +25,7 @@ export async function summarizeMovieDetails(input: SummarizeMovieDetailsInput): 
 
 const prompt = ai.definePrompt({
   name: 'summarizeMovieDetailsPrompt',
-  model: gemini15Flash,
+  model: 'gemini-1.5-flash',
   input: {schema: SummarizeMovieDetailsInputSchema},
   output: {schema: SummarizeMovieDetailsOutputSchema},
   prompt: `Você é um especialista em sumarização de filmes e séries por IA.
