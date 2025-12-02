@@ -32,3 +32,16 @@ export interface UserRecommendation {
     posterUrl: string;
     genre: string;
 }
+
+export interface UserPreference {
+    id: string;
+    userId: string;
+    movieId: string | null;
+    seriesId: string | null;
+    preferenceType: 'watchlist' | 'liked' | 'disliked';
+    createdAt: string;
+    // Denormalized data for easy display
+    title: string;
+    posterUrl: string;
+    genre: string;
+}

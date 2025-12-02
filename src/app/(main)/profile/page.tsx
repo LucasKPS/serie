@@ -4,16 +4,16 @@
 import { useMemo } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { collection, query, orderBy } from 'firebase/firestore';
+import { collection, query, orderBy, where } from 'firebase/firestore';
 import { useFirebase, useCollection, useMemoFirebase } from '@/firebase';
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { useUser } from "@/firebase/auth/use-user";
-import { Film, History } from "lucide-react";
+import { Film, History, ListVideo } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
-import type { UserRecommendation } from '@/lib/types';
+import type { UserPreference, UserRecommendation } from '@/lib/types';
 import { Badge } from '@/components/ui/badge';
 import { MovieCard } from '@/components/movies/movie-card';
 
@@ -60,6 +60,57 @@ function RecommendationHistory() {
   )
 }
 
+function MyWatchlist() {
+  const { firestore, user } = useFirebase();
+
+  const watchlistQuery = useMemoFirebase(() => {
+    if (!user) return null;
+    return query(
+      collection(firestore, 'users', user.uid, 'userPreferences'),
+      where('preferenceType', '==', 'watchlist'),
+      orderBy('createdAt', 'desc')
+    );
+  }, [firestore, user]);
+
+  const { data: watchlistItems, isLoading } = useCollection<UserPreference>(watchlistQuery);
+  
+    if (isLoading) {
+      return (
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              {[...Array(6)].map((_, i) => <Skeleton key={i} className="aspect-[2/3] w-full rounded-lg" />)}
+          </div>
+      )
+    }
+  
+    if (!watchlistItems || watchlistItems.length === 0) {
+      return (
+          <div className='text-center py-8'>
+              <p className="text-muted-foreground">Sua lista está vazia.</p>
+              <Button asChild variant="link" className="mt-2">
+                  <Link href="/home">Adicionar filmes e séries</Link>
+              </Button>
+          </div>
+      )
+    }
+
+    return (
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4 md:gap-6">
+            {watchlistItems.map(item => (
+                <Link key={item.id} href={`/movie/${item.movieId}`}>
+                   <MovieCard movie={{
+                        id: item.movieId!,
+                        title: item.title,
+                        posterUrl: item.posterUrl,
+                        aiHint: item.genre,
+                        genre: item.genre,
+                        description: '',
+                   }} />
+                </Link>
+            ))}
+        </div>
+      )
+}
+
 export default function ProfilePage() {
   const { user, isUserLoading } = useUser();
 
@@ -101,6 +152,21 @@ export default function ProfilePage() {
       </div>
 
       <div className="grid gap-8">
+         <Card>
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2">
+                <ListVideo className="w-6 h-6" />
+                Minha Lista
+                </CardTitle>
+                <CardDescription>
+                Filmes e séries que você salvou para assistir mais tarde.
+                </CardDescription>
+            </CardHeader>
+            <CardContent>
+                <MyWatchlist />
+            </CardContent>
+            </Card>
+
         <Card>
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
@@ -113,20 +179,6 @@ export default function ProfilePage() {
           </CardHeader>
           <CardContent>
             <RecommendationHistory />
-          </CardContent>
-        </Card>
-
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Film className="w-6 h-6" />
-              Minha Lista
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-             <p className="text-muted-foreground">
-              Você pode gerenciar sua lista pessoal de filmes e séries para assistir aqui. Esta funcionalidade chegará em breve!
-            </p>
           </CardContent>
         </Card>
       </div>
